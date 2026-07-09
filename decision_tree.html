@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where do I start? — Gradient Resolutions</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy:       #1B3A4B;
+    --teal:       #2E9AA8;
+    --teal-dark:  #1E7A87;
+    --teal-light: #E8F6F8;
+    --gold:       #B8932A;
+    --orange:     #E87A00;
+    --grey-light: #F4F4F2;
+    --grey-rule:  #C8C8C8;
+    --text:       #1A1A1A;
+    --white:      #FFFFFF;
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: #F8F8F6;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 0 60px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .page-header {
+    background: var(--navy);
+    padding: 18px 40px 14px;
+  }
+  .page-header .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .page-header .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .intro {
+    background: var(--white);
+    padding: 22px 40px;
+    border-bottom: 1px solid var(--grey-rule);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  /* SCREEN SYSTEM */
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  .section {
+    background: var(--white);
+    margin: 16px 0 0;
+    padding: 28px 40px;
+    border-top: 3px solid var(--teal);
+  }
+
+  .section-number {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .section .section-desc {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  /* ASIDE BOX */
+  .aside-box {
+    background: var(--grey-light);
+    border: 1.5px solid var(--grey-rule);
+    border-left: 4px solid var(--gold);
+    border-radius: 3px;
+    padding: 14px 18px;
+    margin: 0 40px 0;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #444;
+  }
+
+  .aside-box strong {
+    color: var(--navy);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .aside-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .aside-btn {
+    padding: 6px 14px;
+    border: 1.5px solid var(--grey-rule);
+    border-radius: 20px;
+    background: var(--white);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12.5px;
+    cursor: pointer;
+    color: var(--text);
+    transition: all 0.15s;
+  }
+
+  .aside-btn:hover {
+    border-color: var(--gold);
+    background: #FDF8EE;
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* CHOICE BUTTONS */
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .choice-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1.5px solid var(--grey-rule);
+    border-radius: 4px;
+    background: var(--white);
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.5;
+    transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+  }
+
+  .choice-btn:hover {
+    border-color: var(--teal);
+    background: var(--teal-light);
+  }
+
+  .choice-btn.selected {
+    border-color: var(--teal);
+    background: var(--teal-light);
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .choice-btn .check {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    border: 1.5px solid var(--grey-rule);
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .choice-btn.selected .check {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+
+  .choice-btn.selected .check::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  /* RADIO BUTTONS (single select) */
+  .choice-btn.radio-btn .check {
+    border-radius: 50%;
+  }
+
+  /* QUESTION */
+  .question {
+    margin-bottom: 24px;
+  }
+
+  .question-text {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  /* RESULT BOX */
+  .result-box {
+    background: var(--teal);
+    color: var(--white);
+    border-radius: 3px;
+    padding: 20px 24px;
+    margin-top: 8px;
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+
+  .result-box .result-title {
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.85;
+  }
+
+  .result-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .result-box p { margin-bottom: 10px; }
+  .result-box p:last-child { margin-bottom: 0; }
+
+  /* RESOURCE CARDS */
+  .resource-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .resource-card {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .resource-card .resource-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 4px;
+  }
+
+  .resource-card .resource-title {
+    font-weight: 600;
+    font-size: 13.5px;
+    margin-bottom: 4px;
+  }
+
+  .resource-card .resource-desc {
+    font-size: 12.5px;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+
+  .resource-card a {
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* CTA BOX */
+  .cta-box {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 3px;
+    padding: 18px 22px;
+    margin-top: 14px;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  .cta-box .cta-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .cta-box p { margin-bottom: 12px; }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 3px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 0.04em;
+    transition: opacity 0.15s;
+    text-decoration: none;
+  }
+
+  .btn:hover { opacity: 0.88; }
+
+  .btn-teal { background: var(--teal); color: var(--white); }
+  .btn-navy { background: var(--navy); color: var(--white); }
+  .btn-white { background: var(--white); color: var(--navy); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.5);
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    align-items: center;
+  }
+
+  /* BACK LINK */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--teal);
+    cursor: pointer;
+    margin: 16px 40px 0;
+    background: none;
+    border: none;
+    font-family: 'Source Sans 3', sans-serif;
+    text-decoration: none;
+  }
+
+  .back-link:hover { opacity: 0.75; }
+
+  /* PROGRESS */
+  .progress-bar {
+    background: var(--grey-rule);
+    height: 3px;
+    margin: 0;
+  }
+
+  .progress-fill {
+    background: var(--teal);
+    height: 3px;
+    transition: width 0.3s;
+  }
+
+  /* DIVIDER */
+  hr.soft {
+    border: none;
+    border-top: 1px solid var(--grey-rule);
+    margin: 20px 0;
+  }
+
+  /* WORKBOOK FOOTER */
+  .workbook-note {
+    text-align: center;
+    padding: 24px 40px 10px;
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .workbook-note a { color: var(--teal); text-decoration: none; }
+
+  /* PROFESSIONAL ENTRY */
+  .pro-entry {
+    background: var(--navy);
+    color: var(--white);
+    margin: 16px 0 0;
+    padding: 20px 40px;
+    border-top: 3px solid var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .pro-entry p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .pro-entry strong {
+    display: block;
+    font-size: 15px;
+    color: var(--white);
+    margin-bottom: 4px;
+    opacity: 1;
+  }
+
+  @media (max-width: 600px) {
+    .page-header, .intro, .section, .aside-box { padding-left: 20px; padding-right: 20px; }
+    .back-link { margin-left: 20px; }
+    .pro-entry { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="title">Help me think this through</div>
+  <div class="subtitle">A guided path to the right next step for your family</div>
+</div>
+
+<div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+
+<div class="intro">
+  <p>Answer a few short questions and I'll point you toward the resources and next steps that fit where you actually are — not a generic checklist.</p>
+  <p style="margin-top:10px;">Your answers stay with you. Nothing here is sent to anyone.</p>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 0 — STATUS SELECTION
+══════════════════════════════════════════ -->
+<div class="screen active" id="screen-status">
+
+  <div class="section">
+    <div class="section-number">Step 1 of 3</div>
+    <h2>Where are you in the process?</h2>
+    <p class="section-desc">Choose the option that feels closest to your situation right now.</p>
+
+    <div class="choices" id="status-choices">
+      <button class="choice-btn radio-btn" onclick="selectStatus(this, 'unsure')">
+        <span class="check"></span>
+        We aren't sure if we want to divorce
+      </button>
+      <button class="choice-btn radio-btn" onclick="selectStatus(this, 'separated')">
+        <span class="check"></span>
+        We are separated
+      </button>
+      <button class="choice-btn radio-btn" onclick="selectStatus(this, 'filed')">
+        <span class="check"></span>
+        We've filed but haven't started yet
+      </button>
+      <button class="choice-btn radio-btn" onclick="selectStatus(this, 'impasse')">
+        <span class="check"></span>
+        We are mid-divorce or at an impasse
+      </button>
+      <button class="choice-btn radio-btn" onclick="selectStatus(this, 'postdivorce')">
+        <span class="check"></span>
+        We are post-divorce
+      </button>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-teal" onclick="goToFollowUp()" id="status-next-btn" style="opacity:0.4;pointer-events:none;">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ASIDE -->
+  <div class="aside-box" style="margin-top:16px;">
+    <strong>Not sure which applies to you?</strong>
+    I'm just starting to think about this — nothing is decided or filed yet.
+    <div class="aside-options">
+      <button class="aside-btn" onclick="selectStatusFromAside('unsure')">Just thinking about it</button>
+      <button class="aside-btn" onclick="selectStatusFromAside('separated')">We've separated but nothing is filed</button>
+      <button class="aside-btn" onclick="selectStatusFromAside('filed')">Divorce is already in progress</button>
+      <button class="aside-btn" onclick="selectStatusFromAside('postdivorce')">We have a divorce decree</button>
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL ENTRY -->
+  <div class="pro-entry">
+    <div>
+      <strong>Are you an attorney or mediator?</strong>
+      <p>If you're a professional with a client at impasse, there's a separate path for you.</p>
+    </div>
+    <button class="btn btn-outline" onclick="goToPro()">Professional entry →</button>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 1 — FOLLOW-UP QUESTIONS
+══════════════════════════════════════════ -->
+<div class="screen" id="screen-followup">
+  <button class="back-link" onclick="goBack('screen-status')">← Back</button>
+
+  <!-- UNSURE -->
+  <div id="followup-unsure" class="followup-block" style="display:none;">
+    <div class="section">
+      <div class="section-number">Step 2 of 3</div>
+      <h2>A little more about your situation</h2>
+      <p class="section-desc">These questions help me point you toward the right resources. Select all that apply.</p>
+
+      <div class="question">
+        <div class="question-text">Is your spouse or partner open to having this conversation together?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="both-unsure">
+            <span class="check"></span>We're both uncertain — neither of us is sure what we want
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="one-ready">
+            <span class="check"></span>I'm ready to move forward, but they aren't there yet
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="not-talking">
+            <span class="check"></span>We're not really talking about it — I'm researching on my own
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Do you have children?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="has-children">
+            <span class="check"></span>Yes
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="no-children">
+            <span class="check"></span>No
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Are there other agreements you may need help with?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pets">
+            <span class="check"></span>Pet custody or care arrangements
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="finances">
+            <span class="check"></span>Financial agreements — joint accounts, insurance, shared debt
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="living">
+            <span class="check"></span>Living arrangements — who stays, or how we share a home while figuring this out
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="none-extra">
+            <span class="check"></span>None yet — just figuring out the big picture first
+          </button>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-text">Have you spoken to anyone about your options yet?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="spoken-no">
+            <span class="check"></span>No — I'm just starting to research
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="spoken-attorney">
+            <span class="check"></span>Yes — I've spoken to an attorney
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="spoken-therapist">
+            <span class="check"></span>Yes — I've spoken to a therapist or coach
+          </button>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-teal" onclick="showResult('unsure')">Show me what fits →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPARATED -->
+  <div id="followup-separated" class="followup-block" style="display:none;">
+    <div class="section">
+      <div class="section-number">Step 2 of 3</div>
+      <h2>A little more about your situation</h2>
+      <p class="section-desc">These questions help me point you toward the right resources. Select all that apply.</p>
+
+      <div class="question">
+        <div class="question-text">Do you have children?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="has-children">
+            <span class="check"></span>Yes
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="no-children">
+            <span class="check"></span>No
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Do you have temporary agreements in place right now?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="has-agreements">
+            <span class="check"></span>Yes — we have informal or written arrangements for parenting, finances, or living
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="no-agreements">
+            <span class="check"></span>No — we're figuring it out as we go
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="partial-agreements">
+            <span class="check"></span>Partially — some things are settled, others aren't
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">How would you describe communication right now?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="amicable">
+            <span class="check"></span>Still amicable — we're managing okay
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="strained">
+            <span class="check"></span>Strained — we can communicate but it's difficult
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="broken-down">
+            <span class="check"></span>Broken down — communication has mostly stopped or escalates
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Are there safety concerns in your situation?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="dv">
+            <span class="check"></span>Yes — there has been domestic violence
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="cc">
+            <span class="check"></span>Yes — I feel controlled or that I can't make decisions freely
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="no-safety">
+            <span class="check"></span>No safety concerns
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Are there other agreements you need help with?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pets">
+            <span class="check"></span>Pet custody or care arrangements
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="religion">
+            <span class="check"></span>Religious or cultural requirements for divorce or remarriage
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="finances">
+            <span class="check"></span>Financial step-down plan — insurance, shared accounts, debt
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="none-extra">
+            <span class="check"></span>None beyond what we've discussed
+          </button>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-teal" onclick="showResult('separated')">Show me what fits →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILED -->
+  <div id="followup-filed" class="followup-block" style="display:none;">
+    <div class="section">
+      <div class="section-number">Step 2 of 3</div>
+      <h2>A little more about your situation</h2>
+      <p class="section-desc">These questions help me point you toward the right resources. Select all that apply.</p>
+
+      <div class="question">
+        <div class="question-text">Do you have children?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="has-children">
+            <span class="check"></span>Yes
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="no-children">
+            <span class="check"></span>No
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Do you have an attorney, or are you planning to mediate without one?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="has-attorney">
+            <span class="check"></span>I have an attorney
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="no-attorney">
+            <span class="check"></span>I plan to mediate without a litigating attorney
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="consulting-attorney">
+            <span class="check"></span>I'm considering a consulting attorney — someone to review the agreement, not fight the case
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Are both parties willing to participate in mediation?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="both-willing">
+            <span class="check"></span>Yes — we both want to mediate
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="one-resistant">
+            <span class="check"></span>Not yet — one of us is hesitant or resistant
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="not-sure-willing">
+            <span class="check"></span>I'm not sure yet
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Are there other agreements or circumstances to factor in?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pets">
+            <span class="check"></span>Pet custody or care arrangements
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="grey-divorce">
+            <span class="check"></span>Retirement is a significant factor — this is a later-in-life divorce
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="special-needs">
+            <span class="check"></span>A child with developmental, medical, or special needs
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="none-extra">
+            <span class="check"></span>None of the above
+          </button>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-teal" onclick="showResult('filed')">Show me what fits →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPASSE -->
+  <div id="followup-impasse" class="followup-block" style="display:none;">
+    <div class="section">
+      <div class="section-number">Step 2 of 3</div>
+      <h2>A little more about your situation</h2>
+      <p class="section-desc">These questions help me point you toward the right resources. Select all that apply.</p>
+
+      <div class="question">
+        <div class="question-text">Where are you stuck?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="stuck-parenting">
+            <span class="check"></span>Parenting decisions — schedule, school, medical choices, activities
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="stuck-finances">
+            <span class="check"></span>Financial agreements — assets, debt, support
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="stuck-both">
+            <span class="check"></span>Both — it feels like everything is stuck
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="stuck-one-issue">
+            <span class="check"></span>One specific issue we keep coming back to
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Are attorneys involved on either side?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="attorneys-both">
+            <span class="check"></span>Yes — both of us have attorneys
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="attorneys-one">
+            <span class="check"></span>One of us has an attorney
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="attorneys-none">
+            <span class="check"></span>No attorneys involved
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Have you tried mediation before?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="tried-mediation">
+            <span class="check"></span>Yes — it didn't work or stalled out
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="not-tried">
+            <span class="check"></span>No — this would be our first attempt
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="partial-mediation">
+            <span class="check"></span>We've had some sessions but haven't finished
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Are there other factors making this more complex?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pets">
+            <span class="check"></span>Pet custody or care arrangements
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="special-needs">
+            <span class="check"></span>A child with developmental, medical, or special needs
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="dv">
+            <span class="check"></span>Safety concerns — domestic violence or controlling behavior
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="none-extra">
+            <span class="check"></span>None of the above
+          </button>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-teal" onclick="showResult('impasse')">Show me what fits →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST-DIVORCE -->
+  <div id="followup-postdivorce" class="followup-block" style="display:none;">
+    <div class="section">
+      <div class="section-number">Step 2 of 3</div>
+      <h2>A little more about your situation</h2>
+      <p class="section-desc">These questions help me point you toward the right resources. Select all that apply.</p>
+
+      <div class="question">
+        <div class="question-text">Do you have children?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="has-children">
+            <span class="check"></span>Yes
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="no-children">
+            <span class="check"></span>No
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">What is the main issue right now?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="not-followed">
+            <span class="check"></span>Our agreement isn't being followed
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="life-changed">
+            <span class="check"></span>Life has changed and the plan doesn't fit anymore
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="comm-broken">
+            <span class="check"></span>Co-parenting communication has completely broken down
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="high-conflict">
+            <span class="check"></span>We are in repeated, high-conflict co-parenting — every decision is a battle
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Have you considered whether you need mediation or parenting coordination?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="need-mediation">
+            <span class="check"></span>I think mediation — we can still communicate, we just need help
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="need-pc">
+            <span class="check"></span>I think we may need parenting coordination — communication has broken down
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="not-sure-which">
+            <span class="check"></span>I'm not sure which one fits
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Are there other factors to consider?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pets">
+            <span class="check"></span>Pet custody or care arrangements
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="special-needs">
+            <span class="check"></span>A child with developmental, medical, or special needs
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="new-partner">
+            <span class="check"></span>A new partner or stepparent is now part of the picture
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="none-extra">
+            <span class="check"></span>None of the above
+          </button>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-teal" onclick="showResult('postdivorce')">Show me what fits →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL -->
+  <div id="followup-pro" class="followup-block" style="display:none;">
+    <div class="section" style="border-top-color: var(--orange);">
+      <div class="section-number" style="color:var(--orange);">Professional path</div>
+      <h2>Tell me about your case</h2>
+      <p class="section-desc">Select all that apply.</p>
+
+      <div class="question">
+        <div class="question-text">What type of issue is your client stuck on?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pro-parenting">
+            <span class="check"></span>A parenting dispute — schedule, school, medical, activities
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pro-financial">
+            <span class="check"></span>A financial impasse
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pro-both">
+            <span class="check"></span>Both parenting and financial issues
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pro-mental-health">
+            <span class="check"></span>A mental health or substance issue affecting the process
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Are both parties represented?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pro-both-rep">
+            <span class="check"></span>Yes — both have counsel
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pro-one-rep">
+            <span class="check"></span>One party is represented
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pro-none-rep">
+            <span class="check"></span>Neither party has counsel
+          </button>
+        </div>
+      </div>
+
+      <hr class="soft">
+
+      <div class="question">
+        <div class="question-text">Has mediation been attempted?</div>
+        <div class="choices">
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pro-tried">
+            <span class="check"></span>Yes — it stalled or failed
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pro-not-tried">
+            <span class="check"></span>No — this would be a first attempt
+          </button>
+          <button class="choice-btn" onclick="toggleChoice(this)" data-key="pro-partial">
+            <span class="check"></span>Partially — some progress was made but not enough
+          </button>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-navy" onclick="showResult('pro')">Show me next steps →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 2 — RESULTS
+══════════════════════════════════════════ -->
+<div class="screen" id="screen-result">
+  <button class="back-link" onclick="goBackToFollowup()">← Back</button>
+  <div id="result-content"></div>
+</div>
+
+<!-- WORKBOOK NOTE -->
+<div class="workbook-note">
+  If you found this useful and want more tools like it,<br>
+  visit <a href="https://www.GradientResolutions.com" target="_blank">GradientResolutions.com</a> or explore the <a href="https://www.amazon.com/dp/B0EXAMPLE" target="_blank">Co-Parenting Plan Blueprint workbook</a>.
+</div>
+
+<script>
+  let currentStatus = null;
+  let previousScreen = null;
+
+  function updateProgress(pct) {
+    document.getElementById('progress').style.width = pct + '%';
+  }
+
+  function selectStatus(btn, status) {
+    document.querySelectorAll('#status-choices .choice-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    currentStatus = status;
+    const nextBtn = document.getElementById('status-next-btn');
+    nextBtn.style.opacity = '1';
+    nextBtn.style.pointerEvents = 'auto';
+  }
+
+  function selectStatusFromAside(status) {
+    const map = {
+      unsure: 0, separated: 1, filed: 2, postdivorce: 4
+    };
+    const btns = document.querySelectorAll('#status-choices .choice-btn');
+    btns.forEach(b => b.classList.remove('selected'));
+    if (map[status] !== undefined) btns[map[status]].classList.add('selected');
+    currentStatus = status;
+    const nextBtn = document.getElementById('status-next-btn');
+    nextBtn.style.opacity = '1';
+    nextBtn.style.pointerEvents = 'auto';
+    document.getElementById('screen-status').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function goToPro() {
+    currentStatus = 'pro';
+    showScreen('screen-followup');
+    document.querySelectorAll('.followup-block').forEach(b => b.style.display = 'none');
+    document.getElementById('followup-pro').style.display = 'block';
+    updateProgress(50);
+  }
+
+  function goToFollowUp() {
+    if (!currentStatus) return;
+    showScreen('screen-followup');
+    document.querySelectorAll('.followup-block').forEach(b => b.style.display = 'none');
+    document.getElementById('followup-' + currentStatus).style.display = 'block';
+    updateProgress(50);
+  }
+
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function goBack(targetId) {
+    showScreen(targetId);
+    updateProgress(targetId === 'screen-status' ? 0 : 50);
+  }
+
+  function goBackToFollowup() {
+    showScreen('screen-followup');
+    updateProgress(50);
+  }
+
+  function toggleChoice(btn) {
+    btn.classList.toggle('selected');
+  }
+
+  function getSelected(container) {
+    return Array.from(container.querySelectorAll('.choice-btn.selected')).map(b => b.getAttribute('data-key'));
+  }
+
+  // ── RESULTS ──────────────────────────────────────────────
+
+  function showResult(status) {
+    const block = document.getElementById('followup-' + status);
+    const selected = getSelected(block);
+    const html = buildResult(status, selected);
+    document.getElementById('result-content').innerHTML = html;
+    showScreen('screen-result');
+    updateProgress(100);
+  }
+
+  function buildResult(status, selected) {
+    const has = (key) => selected.includes(key);
+    let html = '';
+
+    if (status === 'unsure') {
+      html += resultBox(
+        "Where you are",
+        "You're at one of the most important — and most uncertain — moments in this process. The fact that you're researching rather than reacting is already a good sign.",
+        status
+      );
+
+      if (has('one-ready')) {
+        html += resourceCard(
+          "Your next step",
+          "Invitation worksheet",
+          "Your spouse isn't at the table yet. This worksheet helps you understand what kind of resistance you're dealing with and gives you specific language for each type.",
+          "https://lorberlm-crypto.github.io/gr-worksheets/invitation_worksheet.html",
+          "Open the worksheet"
+        );
+      }
+
+      if (has('both-unsure')) {
+        html += infoCard(
+          "Worth knowing",
+          "If you're both uncertain whether to divorce, there is a structured process for exactly that — four sessions designed to help each of you get clear on what you actually want. It's not therapy, and it's not divorce planning. It's a guided path to clarity. Ask about the discernment process in your consultation."
+        );
+      }
+
+      if (has('has-children')) {
+        html += infoCard(
+          "A note on children",
+          "The decisions you make now — even informal ones — can shape what comes later. If there are children involved, a parenting plan created during this period should include clear language that it doesn't establish legal precedent for any future proceedings."
+        );
+      }
+
+      if (has('pets')) {
+        html += infoCard("Pet custody", "Pet care arrangements can be included in any separation or mediation agreement. Worth raising in your consultation.");
+      }
+
+      if (has('dv') || has('cc')) {
+        html += safetyCard();
+      }
+
+      html += ctaBox(
+        "Ready to talk it through?",
+        "A consultation is a conversation — not a commitment. We'll talk about where you are, what you're weighing, and what makes sense as a next step.",
+        "https://calendly.com/mediatorlaura/mediation-consultation-clone",
+        "Schedule a consultation"
+      );
+    }
+
+    else if (status === 'separated') {
+      html += resultBox(
+        "Where you are",
+        "Separation is often the longest and most complicated chapter of the process. Having things in writing — even if you're not sure what comes next — protects everyone involved.",
+        status
+      );
+
+      if (has('no-agreements') || has('partial-agreements')) {
+        html += infoCard(
+          "Agreements worth considering now",
+          "Even without filing, written agreements for parenting schedules, financial responsibilities, and living arrangements can prevent informal arrangements from being used as legal precedent later. A cohabitation agreement, parenting plan, or financial step-down plan may be worth discussing."
+        );
+      }
+
+      if (has('broken-down')) {
+        html += infoCard(
+          "When communication is breaking down",
+          "Structured support now can prevent a manageable separation from becoming a high-conflict divorce. The earlier you establish clear agreements, the less room there is for misunderstanding."
+        );
+      }
+
+      if (has('dv')) {
+        html += safetyCard();
+      }
+
+      if (has('cc')) {
+        html += coerciveControlCard();
+      }
+
+      if (has('religion')) {
+        html += infoCard(
+          "Religious or cultural requirements",
+          "Some traditions have specific requirements for a marriage to be formally dissolved or for the right to remarry. These are separate from the civil process and need to be addressed explicitly in any agreement."
+        );
+      }
+
+      if (has('pets')) {
+        html += infoCard("Pet custody", "Pet care arrangements can be included in any separation or mediation agreement.");
+      }
+
+      html += ctaBox(
+        "Ready to talk it through?",
+        "A consultation is a conversation — not a commitment. We can talk about what agreements make sense for your situation right now.",
+        "https://calendly.com/mediatorlaura/mediation-consultation-clone",
+        "Schedule a consultation"
+      );
+    }
+
+    else if (status === 'filed') {
+      html += resultBox(
+        "Where you are",
+        "Filing is the start of the legal process, but it doesn't determine how you get through it. Mediation is still available — and still the faster, less expensive path to an agreement that actually holds.",
+        status
+      );
+
+      if (has('one-resistant')) {
+        html += resourceCard(
+          "Your next step",
+          "Invitation worksheet",
+          "If one of you is hesitant, this worksheet helps you understand what kind of resistance you're dealing with and gives you specific language for the conversation.",
+          "https://lorberlm-crypto.github.io/gr-worksheets/invitation_worksheet.html",
+          "Open the worksheet"
+        );
+      }
+
+      if (has('no-attorney') || has('consulting-attorney')) {
+        html += infoCard(
+          "On attorneys and mediation",
+          "You don't need a litigating attorney to mediate. But you should have someone review your agreement before it's submitted to a judge. Consulting attorneys charge by the hour, understand mediation, and are there to make sure you know what you're agreeing to — not to fight the case."
+        );
+      }
+
+      if (has('grey-divorce')) {
+        html += infoCard(
+          "Grey divorce and retirement",
+          "When retirement is on the horizon, financial goals and security need to be the starting point — not an afterthought. A CDFA can help you see the long-term picture. We start with what each of you needs retirement to look like before anything else gets divided."
+        );
+      }
+
+      if (has('special-needs')) {
+        html += infoCard(
+          "Children with special needs",
+          "When a child has developmental, medical, or other specialized needs, the parenting plan has to be built around that child specifically — not a generic template. We may need to bring in additional expertise before building agreements."
+        );
+      }
+
+      if (has('pets')) {
+        html += infoCard("Pet custody", "Pet care arrangements can be included in your mediation agreement.");
+      }
+
+      html += ctaBox(
+        "Ready to talk it through?",
+        "A consultation is where we figure out the right approach for your specific situation. No commitment — just a conversation.",
+        "https://calendly.com/mediatorlaura/mediation-consultation-clone",
+        "Schedule a consultation"
+      );
+    }
+
+    else if (status === 'impasse') {
+      html += resultBox(
+        "Where you are",
+        "Impasse is part of the process, not a sign that something has gone wrong. What it usually means is that you need more information, more structure, or a different way into the conversation.",
+        status
+      );
+
+      if (has('tried-mediation')) {
+        html += infoCard(
+          "If mediation has stalled before",
+          "A previous impasse doesn't mean mediation can't work — it may mean the process needs a different structure, or that one specific issue needs to be isolated and addressed before everything else can move. I don't take over cases. I help get them unstuck."
+        );
+      }
+
+      if (has('attorneys-both') || has('attorneys-one')) {
+        html += infoCard(
+          "When attorneys are involved",
+          "If attorneys are already on both sides, formal initiation through counsel is the right path. If you're at a true impasse on one specific issue, there is a process for submitting it to a judge or arbitrator — and bringing the decision straight back to mediation."
+        );
+      }
+
+      if (has('stuck-parenting') || has('stuck-both')) {
+        html += resourceCard(
+          "Useful worksheet",
+          "Mediation vs. parenting coordination",
+          "If the impasse is around parenting decisions specifically, this worksheet helps clarify whether you need mediation or a parenting coordinator with decision-making authority.",
+          "https://lorberlm-crypto.github.io/gr-worksheets/mediation_vs_pc_worksheet.html",
+          "Open the worksheet"
+        );
+      }
+
+      if (has('dv')) {
+        html += safetyCard();
+      }
+
+      if (has('special-needs')) {
+        html += infoCard(
+          "Children with special needs",
+          "When a child's developmental, medical, or therapeutic needs are at the center of the dispute, temperament charting and input from teachers, therapists, and doctors can shift the conversation significantly."
+        );
+      }
+
+      html += ctaBox(
+        "Ready to talk it through?",
+        "A consultation is a conversation about what your specific situation needs. I'll tell you directly whether I'm the right intervention — and what a realistic next step looks like.",
+        "https://calendly.com/mediatorlaura/mediation-consultation-clone",
+        "Schedule a consultation"
+      );
+    }
+
+    else if (status === 'postdivorce') {
+      html += resultBox(
+        "Where you are",
+        "Having a decree doesn't mean the work is finished. Life changes, children grow, and agreements that worked perfectly two years ago may need updating. That's not failure — that's what was always going to happen.",
+        status
+      );
+
+      if (has('high-conflict') || has('comm-broken') || has('need-pc') || has('not-sure-which')) {
+        html += resourceCard(
+          "Useful worksheet",
+          "Mediation vs. parenting coordination",
+          "If co-parenting has broken down or every decision is a battle, this worksheet helps clarify whether you need mediation or a parenting coordinator with decision-making authority.",
+          "https://lorberlm-crypto.github.io/gr-worksheets/mediation_vs_pc_worksheet.html",
+          "Open the worksheet"
+        );
+      }
+
+      if (has('not-followed')) {
+        html += infoCard(
+          "When the agreement isn't being followed",
+          "Before going back to court, it's worth asking why. Most non-compliance isn't bad faith — it's a plan that doesn't fit reality. Mediation can get underneath the problem and fix what isn't working without a courtroom."
+        );
+      }
+
+      if (has('life-changed')) {
+        html += infoCard(
+          "When life has changed",
+          "Modifying a parenting plan doesn't mean starting over. If the original plan was drafted with review intervals built in, this may be a single session. Even if not, we're adjusting what exists — not rebuilding from scratch."
+        );
+      }
+
+      if (has('new-partner')) {
+        html += infoCard(
+          "New partners and stepparents",
+          "When a new partner becomes part of the household, the agreements that governed two households may need to account for three or four. This is one of the most common reasons families return to mediation in the years after a divorce."
+        );
+      }
+
+      if (has('special-needs')) {
+        html += infoCard(
+          "Children with special needs",
+          "As children grow and their needs change, so does the parenting plan. A child whose needs have shifted significantly — developmentally, medically, or educationally — often needs a new plan, not just a modified one."
+        );
+      }
+
+      if (has('pets')) {
+        html += infoCard("Pet custody", "Pet care arrangements can be revisited or added to an existing agreement at any time.");
+      }
+
+      html += ctaBox(
+        "Ready to talk it through?",
+        "A post-divorce consultation is shorter and more focused than a full mediation intake. We figure out what needs adjusting and what path makes the most sense.",
+        "https://calendly.com/mediatorlaura/mediation-consultation-clone",
+        "Schedule a consultation"
+      );
+    }
+
+    else if (status === 'pro') {
+      html += `<div class="section" style="border-top-color:var(--orange);">
+        <div class="section-number" style="color:var(--orange);">For professionals</div>
+        <h2>Here is what I can offer your case</h2>`;
+
+      html += `<div class="result-box" style="background:var(--navy);">
+        <div class="result-title">The short version</div>
+        <p>I don't take over cases. I help get them unstuck. A targeted intervention — as little as one session — can break a pattern that's been costing everyone time and money for months. I work with and through the professionals already on the case, never around them.</p>
+      </div>`;
+
+      html += `<div style="margin-top:16px;">
+        ${infoCard("What engagement can look like", "A single session focused on one specific issue. A parenting plan built from scratch or rebuilt from one that isn't holding. A reunification plan for a family where the parent-child relationship has been strained by conflict. Parenting coordination — voluntary or court-ordered — for cases that need ongoing structure and decision-making authority.")}
+        ${infoCard("On neutrality", "I practice omnipartiality — I am on everyone's side, and especially on the side of the family as a whole. Individual sessions aren't a compromise to neutrality. They're how I ensure everyone arrives at the joint session having been genuinely heard.")}
+      </div>`;
+
+      html += `<div class="cta-box" style="margin-top:16px;">
+        <div class="cta-label">Next step</div>
+        <p>No referral forms, no intake process. Just a conversation between colleagues about what your case needs.</p>
+        <div class="btn-row">
+          <a href="https://calendly.com/mediatorlaura/lawyer-consultation" target="_blank" class="btn btn-white">Schedule a professional consultation</a>
+          <a href="mailto:Laura@GradientResolutions.com" class="btn btn-outline">Email Laura directly</a>
+        </div>
+      </div>`;
+
+      html += `</div>`;
+    }
+
+    return html;
+  }
+
+  // ── COMPONENT BUILDERS ───────────────────────────────────
+
+  function resultBox(label, text, status) {
+    const colors = {
+      unsure: 'var(--teal)',
+      separated: 'var(--teal)',
+      filed: 'var(--teal)',
+      impasse: 'var(--navy)',
+      postdivorce: 'var(--teal)',
+    };
+    const bg = colors[status] || 'var(--teal)';
+    return `<div class="section">
+      <div class="result-box" style="background:${bg};">
+        <div class="result-title">${label}</div>
+        <p>${text}</p>
+      </div>`;
+  }
+
+  function resourceCard(label, title, desc, url, linkText) {
+    return `<div class="resource-card" style="background:rgba(46,154,168,0.12);border-color:var(--teal);margin-top:12px;">
+      <div class="resource-label">${label}</div>
+      <div class="resource-title" style="color:var(--navy);">${title}</div>
+      <div class="resource-desc" style="color:#333;">${desc}</div>
+      <div style="margin-top:10px;"><a href="${url}" target="_blank" style="color:var(--teal);font-weight:600;">${linkText} →</a></div>
+    </div>`;
+  }
+
+  function infoCard(title, text) {
+    return `<div style="background:var(--grey-light);border:1.5px solid var(--grey-rule);border-left:4px solid var(--teal);border-radius:3px;padding:14px 18px;margin-top:12px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;">${title}</div>
+      <div style="font-size:13px;line-height:1.65;color:#333;">${text}</div>
+    </div>`;
+  }
+
+  function safetyCard() {
+    return `<div style="background:#FFF8F0;border:1.5px solid #E87A00;border-left:4px solid #E87A00;border-radius:3px;padding:14px 18px;margin-top:12px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#E87A00;margin-bottom:6px;">Safety concerns</div>
+      <div style="font-size:13px;line-height:1.65;color:#333;">
+        If domestic violence is part of your situation, mediation can still be an option — but only with the right protocols in place. All sessions are virtual, which creates a layer of separation. Please bring any restraining orders to your consultation.<br><br>
+        If you need immediate support, please reach out to <strong>Tina Lynn Huggins</strong>, a divorce coach specializing in toxic and narcissistic relationships: <a href="https://divorcecoachspecialist.com" target="_blank" style="color:#E87A00;">divorcecoachspecialist.com</a> · 1-719-580-6684 · coachtinalynn@gmail.com. A joint consultation is available on request.
+      </div>
+    </div>`;
+  }
+
+  function coerciveControlCard() {
+    return `<div style="background:#FFF8F0;border:1.5px solid #E87A00;border-left:4px solid #E87A00;border-radius:3px;padding:14px 18px;margin-top:12px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#E87A00;margin-bottom:6px;">Coercive control</div>
+      <div style="font-size:13px;line-height:1.65;color:#333;">
+        Mediation requires that both people can make decisions freely. If that freedom has been systematically removed, mediation is not the right process — a court is better equipped to protect you. Please don't try to figure this out alone. <strong>Tina Lynn Huggins</strong> specializes in exactly this: <a href="https://divorcecoachspecialist.com" target="_blank" style="color:#E87A00;">divorcecoachspecialist.com</a> · 1-719-580-6684.
+      </div>
+    </div>`;
+  }
+
+  function ctaBox(title, text, url, linkText) {
+    return `<div class="cta-box">
+      <div class="cta-label">Ready when you are</div>
+      <p>${text}</p>
+      <div class="btn-row">
+        <a href="${url}" target="_blank" class="btn btn-white">${linkText} →</a>
+        <a href="https://www.GradientResolutions.com" target="_blank" class="btn btn-outline">Back to GradientResolutions.com</a>
+      </div>
+    </div></div>`;
+  }
+
+</script>
+</body>
+</html>
