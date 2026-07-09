@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workbook — Gradient Resolutions</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --orange-dark: #E66414; --orange-light: #FF924D;
+    --teal-light: #9AD3DA; --teal: #00A8A8; --navy: #03444A;
+    --text: #1A1A1A; --grey-bg: #FAFAF8;
+  }
+  body { font-family: 'Work Sans', sans-serif; color: var(--text); background: var(--grey-bg); line-height: 1.75; }
+
+  nav { background: white; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; }
+  .logo { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 20px;
+    background: linear-gradient(90deg, var(--orange-dark), var(--teal), var(--navy));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .nav-links { display: flex; gap: 28px; align-items: center; font-size: 14px; }
+  .nav-links a { color: var(--text); text-decoration: none; }
+  .nav-email { font-size: 12px; color: #888; }
+  .nav-cta { background: var(--teal); color: white; padding: 10px 20px; border-radius: 24px; font-weight: 500; font-size: 13px; }
+
+  .hero { max-width: 760px; margin: 0 auto; padding: 70px 40px 40px; text-align: center; }
+  .hero h1 { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 32px; color: var(--navy); line-height: 1.4; margin-bottom: 20px; }
+  .hero p { font-size: 16px; color: #444; max-width: 560px; margin: 0 auto; }
+
+  .cover-cta {
+    max-width: 760px; margin: 40px auto; padding: 0 40px;
+    display: flex; justify-content: center;
+  }
+  .amazon-btn {
+    background: var(--orange-light); color: white; padding: 16px 36px;
+    border-radius: 28px; font-family: 'Comfortaa', sans-serif; font-weight: 600;
+    font-size: 15px; text-decoration: none; display: inline-block;
+  }
+
+  .content { max-width: 680px; margin: 0 auto; padding: 20px 40px; }
+  .content h2 { font-family: 'Comfortaa', sans-serif; font-weight: 600; font-size: 20px; color: var(--navy); margin-bottom: 14px; }
+  .content p { font-size: 15px; color: #333; margin-bottom: 18px; }
+  .content ul { padding-left: 20px; margin-bottom: 18px; }
+  .content li { font-size: 15px; color: #333; margin-bottom: 10px; }
+
+  .sidebar {
+    max-width: 680px; margin: 30px auto; padding: 28px 32px;
+    background: white; border-left: 4px solid var(--teal); border-radius: 12px;
+  }
+  .sidebar .sidebar-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 12px;
+  }
+  .sidebar p { font-size: 14.5px; color: #444; margin-bottom: 14px; }
+  .sidebar p:last-child { margin-bottom: 0; }
+
+  .why-physical {
+    max-width: 680px; margin: 40px auto; padding: 0 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .why-card { background: white; border: 1px solid #eee; border-radius: 12px; padding: 20px; }
+  .why-card .stat { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 22px; color: var(--orange-dark); margin-bottom: 6px; }
+  .why-card p { font-size: 13px; color: #555; }
+
+  .cta-section { max-width: 680px; margin: 50px auto 90px; padding: 0 40px; text-align: center; }
+  .cta-section p { font-size: 16px; color: var(--navy); font-family: 'Comfortaa', sans-serif; font-weight: 600; margin-bottom: 22px; }
+  .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-btn { padding: 12px 26px; border-radius: 24px; font-size: 14px; font-weight: 500; text-decoration: none; }
+  .cta-primary { background: var(--orange-light); color: white; }
+  .cta-secondary { background: white; color: var(--navy); border: 1.5px solid var(--navy); }
+
+  footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 32px 48px; text-align: center; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Gradient Resolutions</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="workbook.html">Workbook</a>
+    <a href="about.html">About</a>
+    <span class="nav-email">Laura@GradientResolutions.com</span>
+    <a href="mailto:Laura@GradientResolutions.com" style="text-decoration:none;"><div class="nav-cta">Email Laura</div></a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Every decision you make right now is shaping what your child's childhood looks like.</h1>
+  <p>Not just the big ones. The pickup schedule. The holiday rotation. Who takes them to soccer on Saturdays. These decisions become the architecture of your child's daily life. This workbook was built to help you make them well.</p>
+</div>
+
+<div class="cover-cta">
+  <a href="https://a.co/d/0hie4HE4" target="_blank" class="amazon-btn">Get your copy on Amazon →</a>
+</div>
+
+<div class="content">
+  <h2>What it is</h2>
+  <p><em>Your Co-Parenting Plan Blueprint</em> is a step-by-step workbook for parents who want to keep their children at the center of every decision — whether you're negotiating a formal co-parenting plan, working through a specific disagreement, or simply trying to get clearer on what you want and how to say it.</p>
+  <p>It works for parents who are divorcing. For parents who never married. For parents who are still together but struggling to get on the same page. You don't have to be heading into mediation to use it. You don't have to be in crisis.</p>
+</div>
+
+<div class="content">
+  <h2>What it helps you do</h2>
+  <ul>
+    <li>Get clear on what you actually want for your child — not just your position in the argument</li>
+    <li>Understand how your child experiences the world and what they need to feel secure</li>
+    <li>Prepare for a negotiation — as significant as a custody agreement or as specific as whether to sign your kid up for soccer this fall</li>
+    <li>Communicate more effectively with your co-parent, even when it's hard</li>
+    <li>Build a plan that is tailored to your actual family, not a generic template</li>
+  </ul>
+  <p>The workbook is designed to be used on your own — and it works that way. But you don't have to do it alone. If you're already working with a therapist or coach, they can be a wonderful partner for working through it together.</p>
+</div>
+
+<div class="sidebar">
+  <div class="sidebar-label">Why mediation takes longer than you think</div>
+  <p>Think about the last time someone suggested playing Monopoly on a Saturday afternoon. Did you walk in and start moving pieces immediately? Of course not. Before anyone rolls the dice, you spend real time convincing everyone to play, choosing pieces, reviewing the rules, and figuring out your strategy. The active negotiation is actually the shortest part of the game.</p>
+  <p>Mediation works the same way. This workbook is the preparation. It's the piece most people skip — and the piece that makes everything else work.</p>
+</div>
+
+<div class="content">
+  <p style="text-align:center;font-size:14px;color:#666;background:white;border:1px solid #eee;border-radius:12px;padding:18px 24px;">Research shows people are significantly more likely to complete a physical workbook than a digital one — and completion matters. A fillable PDF companion is also available on request once you have your copy.</p>
+</div>
+
+<div class="content">
+  <h2>Who made it — and why</h2>
+  <p>I'm Laura Lorber, a family mediator, parenting coordinator, and certified co-parenting specialist. I also hold a fellowship in infant-toddler care and child development — which means when I talk about what children need, I'm drawing on developmental science, not just legal framework.</p>
+  <p>I built this workbook because the most important preparation most parents skip isn't legal — it's personal. It is the tool I wish every family had before they ever needed me.</p>
+</div>
+
+<div class="cta-section">
+  <p>Ready to start building a plan that actually fits your family?</p>
+  <div class="cta-buttons">
+    <a href="https://a.co/d/0hie4HE4" target="_blank" class="cta-btn cta-primary">Get your copy on Amazon</a>
+    <a href="about.html" class="cta-btn cta-secondary">Learn more about Laura</a>
+  </div>
+</div>
+
+<footer>
+  Gradient Resolutions · GradientResolutions.com · Laura@GradientResolutions.com · 858.522.0667
+</footer>
+
+</body>
+</html>
