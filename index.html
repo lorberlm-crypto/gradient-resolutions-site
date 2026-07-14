@@ -109,6 +109,11 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
+  .tile-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
   .tile {
     border-radius: 16px;
     padding: 32px 24px;
@@ -119,6 +124,7 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 180px;
+    height: 100%;
   }
   .tile:hover {
     transform: translateY(-4px);
@@ -240,6 +246,7 @@
 <div class="tiles-section">
   <div class="tiles-label">How can I help you?</div>
   <div class="tile-grid">
+    <a href="family.html" class="tile-link">
     <div class="tile t1">
       <div>
         <div class="tile-icon"><i>◐</i></div>
@@ -247,7 +254,8 @@
         <div class="tile-sub">Parent-child, elder care, siblings, preventative support</div>
       </div>
     </div>
-    <a href="we-arent-sure.html" style="text-decoration:none;">
+    </a>
+    <a href="we-arent-sure.html" class="tile-link">
     <div class="tile t2">
       <div>
         <div class="tile-icon"><i>◑</i></div>
@@ -256,6 +264,7 @@
       </div>
     </div>
     </a>
+    <a href="pc.html" class="tile-link">
     <div class="tile t3">
       <div>
         <div class="tile-icon"><i>◒</i></div>
@@ -263,13 +272,16 @@
         <div class="tile-sub">Structured support when conflict has become entrenched</div>
       </div>
     </div>
+    </a>
+    <a href="attorneys.html" class="tile-link">
     <div class="tile t4">
       <div>
         <div class="tile-icon"><i>◓</i></div>
-        <div class="tile-title">For attorneys &amp; mediators</div>
+        <div class="tile-title">For attorneys &amp; divorce pros</div>
         <div class="tile-sub">A targeted intervention when a case has stalled</div>
       </div>
     </div>
+    </a>
   </div>
 </div>
 
