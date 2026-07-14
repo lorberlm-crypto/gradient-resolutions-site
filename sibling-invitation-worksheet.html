@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reaching Out to Your Sibling — Invitation Worksheet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy:       #1B3A4B;
+    --teal:       #2E9AA8;
+    --teal-dark:  #1E7A87;
+    --teal-light: #E8F6F8;
+    --gold:       #B8932A;
+    --grey-light: #F4F4F2;
+    --grey-rule:  #C8C8C8;
+    --text:       #1A1A1A;
+    --white:      #FFFFFF;
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: #F8F8F6;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 0 60px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: var(--navy);
+    padding: 18px 40px 14px;
+  }
+  .page-header .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .page-header .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    background: var(--white);
+    padding: 22px 40px;
+    border-bottom: 1px solid var(--grey-rule);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    background: var(--white);
+    margin: 16px 0 0;
+    padding: 28px 40px;
+    border-top: 3px solid var(--teal);
+  }
+
+  .section-number {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .section .section-desc {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  /* ── QUESTIONS ── */
+  .question {
+    margin-bottom: 24px;
+  }
+
+  .question-text {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .question-hint {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  /* ── CHOICE BUTTONS ── */
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .choice-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--grey-rule);
+    border-radius: 4px;
+    background: var(--white);
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.5;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .choice-btn:hover {
+    border-color: var(--teal);
+    background: var(--teal-light);
+  }
+
+  .choice-btn.selected {
+    border-color: var(--teal);
+    background: var(--teal-light);
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .choice-btn .check {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    border: 1.5px solid var(--grey-rule);
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .choice-btn.selected .check {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+
+  .choice-btn.selected .check::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  /* ── RESULT BOX ── */
+  .result-box {
+    display: none;
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: var(--teal);
+    color: var(--white);
+    border-radius: 3px;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  .result-box .result-title {
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 0.85;
+  }
+
+  .result-box.visible { display: block; }
+
+  /* ── DIVIDER ── */
+  hr.soft {
+    border: none;
+    border-top: 1px solid var(--grey-rule);
+    margin: 20px 0;
+  }
+
+  /* ── REFLECT FIELDS ── */
+  .reflect-question {
+    margin-bottom: 22px;
+  }
+
+  .reflect-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--navy);
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .reflect-hint {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 10px 12px;
+    border: 1.5px solid var(--grey-rule);
+    border-radius: 3px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.6;
+    resize: vertical;
+    background: var(--grey-light);
+    transition: border-color 0.15s;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    background: var(--white);
+  }
+
+  /* ── CHILD FRAMEWORK ── */
+  .child-box {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 3px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+
+  .child-box .child-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+
+  .child-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 8px;
+    align-items: baseline;
+  }
+
+  .child-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--teal);
+    min-width: 22px;
+    line-height: 1;
+  }
+
+  .child-word {
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+
+  .child-word strong {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .child-word span {
+    font-size: 12px;
+    opacity: 0.75;
+  }
+
+  /* ── PROMPT BOX ── */
+  .prompt-section {
+    background: var(--grey-light);
+    border: 1.5px solid var(--grey-rule);
+    border-left: 4px solid var(--teal);
+    border-radius: 3px;
+    padding: 18px 20px;
+    margin-top: 20px;
+  }
+
+  .prompt-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+
+  .prompt-output {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+    white-space: pre-wrap;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 3px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 0.04em;
+    transition: opacity 0.15s;
+  }
+
+  .btn:hover { opacity: 0.88; }
+
+  .btn-teal {
+    background: var(--teal);
+    color: var(--white);
+  }
+
+  .btn-navy {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  /* ── FORMAT CHOOSER ── */
+  .format-chooser {
+    margin: 16px 0 10px;
+  }
+
+  .format-chooser label {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .format-options {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .format-btn {
+    padding: 7px 16px;
+    border: 1.5px solid var(--grey-rule);
+    border-radius: 20px;
+    background: var(--white);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--text);
+    transition: all 0.15s;
+  }
+
+  .format-btn:hover, .format-btn.active {
+    border-color: var(--teal);
+    background: var(--teal-light);
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ── PRIVACY NOTE ── */
+  .privacy-note {
+    background: var(--grey-light);
+    border: 1px solid var(--grey-rule);
+    border-radius: 3px;
+    padding: 14px 18px;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: #444;
+    margin-top: 20px;
+  }
+
+  .privacy-note strong {
+    color: var(--navy);
+  }
+
+  /* ── WORKBOOK FOOTER ── */
+  .workbook-note {
+    text-align: center;
+    padding: 24px 40px 10px;
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .workbook-note a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+
+  /* ── COPY FEEDBACK ── */
+  .copy-feedback {
+    font-size: 12px;
+    color: var(--teal);
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .copy-feedback.show { opacity: 1; }
+
+  /* ── REASSURANCE CALLOUT ── */
+  .reassurance-note {
+    background: var(--teal-light);
+    border-left: 4px solid var(--teal);
+    border-radius: 3px;
+    padding: 14px 20px;
+    font-size: 13.5px;
+    color: var(--navy);
+    font-style: italic;
+    margin: 16px 0;
+  }
+
+  /* ── MESSENGER OPTIONS (single-select, no scoring) ── */
+  .messenger-tip {
+    display: none;
+    margin-top: 14px;
+    padding: 14px 18px;
+    background: var(--grey-light);
+    border-radius: 3px;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+  }
+  .messenger-tip.visible { display: block; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 4px;
+    padding: 26px 32px;
+    text-align: center;
+    margin: 20px 0 0;
+  }
+  .final-cta p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+  .final-cta .btn { font-size: 13.5px; }
+
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="title">Reaching out to your sibling</div>
+  <div class="subtitle">A private worksheet to help you start the conversation</div>
+</div>
+
+<div class="intro">
+  <p>Before you send a message or pick up the phone, this worksheet helps you understand what your sibling may be feeling — and how to reach them in a way that opens a door rather than closing one.</p>
+  <p style="margin-top:10px;">Your answers stay with you. Nothing here is sent to anyone.</p>
+  <div class="reassurance-note">Remember: you aren't asking them to commit to a whole process. You're asking for one conversation, with no obligation attached to what happens after it.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PART ZERO — MESSENGER -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-number">Before you write anything</div>
+  <h2>Who should actually deliver this invitation?</h2>
+  <p class="section-desc">Sometimes the message lands better coming from someone other than you — especially if your relationship with this sibling carries old weight. This isn't required. It's worth considering before you draft anything.</p>
+
+  <div class="choices" style="flex-direction:column; gap:8px;">
+    <button class="choice-btn" onclick="selectMessenger(this, 'me')">
+      <span class="check"></span>
+      It needs to come directly from me — no one else can speak for this.
+    </button>
+    <button class="choice-btn" onclick="selectMessenger(this, 'parent')">
+      <span class="check"></span>
+      A parent might be able to make the introduction more gently than I can.
+    </button>
+    <button class="choice-btn" onclick="selectMessenger(this, 'sibling')">
+      <span class="check"></span>
+      Another sibling who's more neutral in this specific conflict could open the door.
+    </button>
+    <button class="choice-btn" onclick="selectMessenger(this, 'other')">
+      <span class="check"></span>
+      A trusted extended family member (aunt, uncle, cousin) might carry less history.
+    </button>
+  </div>
+
+  <div class="messenger-tip" id="messenger-tip"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PART 1 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-number">Part One</div>
+  <h2>What might your sibling be feeling?</h2>
+  <p class="section-desc">Select everything that sounds like your sibling right now. You can choose as many as feel true — most people show more than one.</p>
+
+  <!-- Q1 -->
+  <div class="question">
+    <div class="question-text">When you imagine bringing up mediation, what is your sibling most likely to say?</div>
+    <div class="choices" data-group="q1">
+      <button class="choice-btn" data-type="reluctance" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        "I don't really see the point — things are fine the way they are."
+      </button>
+      <button class="choice-btn" data-type="rebellion" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        "Nobody is going to tell me what to do or how to handle this — least of all you."
+      </button>
+      <button class="choice-btn" data-type="resignation" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        "It won't work. We've tried talking before and it never goes anywhere."
+      </button>
+      <button class="choice-btn" data-type="rationalizing" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        "I've thought about it and I don't think a mediator understands our family well enough."
+      </button>
+    </div>
+  </div>
+
+  <hr class="soft">
+
+  <!-- Q2 -->
+  <div class="question">
+    <div class="question-text">What do you think your sibling is most afraid of?</div>
+    <div class="choices" data-group="q2">
+      <button class="choice-btn" data-type="reluctance" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        Making things real — as long as nothing is official, nothing has to change.
+      </button>
+      <button class="choice-btn" data-type="rebellion" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        Losing control — falling back into an old family role where you called the shots.
+      </button>
+      <button class="choice-btn" data-type="resignation" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        Wasting time and emotional energy on something that won't change anything between you.
+      </button>
+      <button class="choice-btn" data-type="rationalizing" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        Being at a disadvantage — that you've thought this through more and they'll be caught flat-footed.
+      </button>
+    </div>
+  </div>
+
+  <hr class="soft">
+
+  <!-- Q3 -->
+  <div class="question">
+    <div class="question-text">When your sibling has pushed back on difficult conversations in the past, what did it look like?</div>
+    <div class="choices" data-group="q3">
+      <button class="choice-btn" data-type="reluctance" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        They went quiet, changed the subject, or said "let's talk about it later" — and later never came.
+      </button>
+      <button class="choice-btn" data-type="rebellion" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        They pushed back hard, dug in, or turned it into an argument about being told what to do.
+      </button>
+      <button class="choice-btn" data-type="resignation" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        They went along at first but gave up quickly when it got hard — "see, I knew this wouldn't work."
+      </button>
+      <button class="choice-btn" data-type="rationalizing" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        They came back with reasons why the approach was flawed, or why you were the one overreacting.
+      </button>
+    </div>
+  </div>
+
+  <hr class="soft">
+
+  <!-- Q4 -->
+  <div class="question">
+    <div class="question-text">What does your sibling need most right now to feel safe enough to take one small step?</div>
+    <div class="choices" data-group="q4">
+      <button class="choice-btn" data-type="reluctance" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        Permission to move slowly — to know that agreeing to talk doesn't commit them to anything.
+      </button>
+      <button class="choice-btn" data-type="rebellion" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        To feel like this is their choice — not something being done to them, or decided by you first.
+      </button>
+      <button class="choice-btn" data-type="resignation" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        A reason to believe something could actually be different this time.
+      </button>
+      <button class="choice-btn" data-type="rationalizing" onclick="toggleChoice(this)">
+        <span class="check"></span>
+        Real information — to understand exactly how the process works and that it isn't stacked against them.
+      </button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="resistance-result" class="result-box">
+    <div class="result-title">What this tells you</div>
+    <div id="result-text"></div>
+  </div>
+
+  <div class="btn-row" style="margin-top:20px;">
+    <button class="btn btn-teal" onclick="generateResult()">Show me what this means →</button>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PART 2 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-number">Part Two</div>
+  <h2>Before you reach out</h2>
+  <p class="section-desc">These questions are for you, not for the message. Answer honestly. The clearer you are here, the better your outreach will land.</p>
+
+  <div class="reflect-question">
+    <label class="reflect-label">Why do you think the two of you haven't been able to have this conversation on your own?</label>
+    <div class="reflect-hint">Not who's at fault. Just what's actually gotten in the way, every time you've tried.</div>
+    <textarea id="r1" placeholder="Write your thoughts here..."></textarea>
+  </div>
+
+  <div class="reflect-question">
+    <label class="reflect-label">What do you think is likely to be their biggest objection to having a mediated conversation?</label>
+    <div class="reflect-hint">Knowing this in advance helps you write an invitation that doesn't accidentally confirm their worry.</div>
+    <textarea id="r2" placeholder="Write your thoughts here..."></textarea>
+  </div>
+
+  <div class="reflect-question">
+    <label class="reflect-label">What's one thing your sibling might say you got wrong about this — even if you don't think you did?</label>
+    <div class="reflect-hint">This isn't about agreeing with them. It's about showing you're willing to hear a version of events that isn't yours.</div>
+    <textarea id="r3" placeholder="Write your thoughts here..."></textarea>
+  </div>
+
+  <div class="reflect-question">
+    <label class="reflect-label">Can you reach out without any part of your message being about winning, being right, or who was always the favorite? If not — what do you need to set down before you start?</label>
+    <div class="reflect-hint">This is the hardest question. It's also the most important one.</div>
+    <textarea id="r4" placeholder="Write your thoughts here..."></textarea>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PART 3 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-number">Part Three</div>
+  <h2>Write your invitation with AI</h2>
+  <p class="section-desc">You've done the thinking. Now use what you've written to draft your message — with a little help.</p>
+
+  <!-- CHILD FRAMEWORK -->
+  <div class="child-box">
+    <div class="child-title">The C.H.I.L.D. communication framework</div>
+    <div class="child-row">
+      <div class="child-letter">C</div>
+      <div class="child-word"><strong>Compassionate</strong><span>Written with care for what your sibling is carrying, not just what you need to say</span></div>
+    </div>
+    <div class="child-row">
+      <div class="child-letter">H</div>
+      <div class="child-word"><strong>Honest</strong><span>Say what is true without embellishing or omitting what matters</span></div>
+    </div>
+    <div class="child-row">
+      <div class="child-letter">I</div>
+      <div class="child-word"><strong>Intentional</strong><span>Every word earns its place — nothing is vented, nothing is accidental</span></div>
+    </div>
+    <div class="child-row">
+      <div class="child-letter">L</div>
+      <div class="child-word"><strong>Low-Heat</strong><span>Calm in tone even when the situation isn't — de-escalate, don't trigger</span></div>
+    </div>
+    <div class="child-row">
+      <div class="child-letter">D</div>
+      <div class="child-word"><strong>Direct</strong><span>Clear and firm about what you are asking, without pressure or ultimatum</span></div>
+    </div>
+  </div>
+
+  <!-- FORMAT CHOOSER -->
+  <div class="format-chooser">
+    <label>What would you like to create?</label>
+    <div class="format-options">
+      <button class="format-btn active" onclick="setFormat(this, 'email')">An email or text message</button>
+      <button class="format-btn" onclick="setFormat(this, 'script')">A script for a conversation</button>
+      <button class="format-btn" onclick="setFormat(this, 'roleplay')">A role play to practice</button>
+    </div>
+  </div>
+
+  <!-- PROMPT OUTPUT -->
+  <div class="prompt-section">
+    <div class="prompt-label">Your AI prompt — copy this and take it to Claude.ai</div>
+    <div class="prompt-output" id="prompt-output">Click "Build my prompt" below to assemble your answers into a ready-to-use prompt.</div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-teal" onclick="buildPrompt()">Build my prompt</button>
+    <button class="btn btn-navy" onclick="copyPrompt()">Copy to clipboard</button>
+    <span class="copy-feedback" id="copy-feedback">Copied!</span>
+  </div>
+
+  <!-- PRIVACY NOTE -->
+  <div class="privacy-note">
+    <strong>A note on privacy.</strong> I recommend <a href="https://claude.ai" target="_blank">Claude.ai</a> for this work. Unlike some AI tools, Claude does not remember your conversations by default — what you share stays in that session and is not used to train the model. If you want Claude to remember something for future sessions, you can tell it to. Otherwise, your conversation is private to you.<br><br>
+    When you start your Claude session, treat it like a conversation at a coffee shop — someone might be nearby. Use first names only, no identifying details. Then paste your prompt and get to work.
+  </div>
+
+  <!-- CLAUDE LINK -->
+  <div class="btn-row" style="margin-top: 16px;">
+    <a href="https://claude.ai" target="_blank" class="btn btn-teal">Open Claude.ai →</a>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="section" style="border-top:none;">
+  <div class="final-cta">
+    <p>Whenever you're ready — whether your sibling has agreed to talk, or you just want to think it through first — I'm glad to help.</p>
+    <a href="mailto:Laura@GradientResolutions.com?subject=Sibling%20mediation%20inquiry" class="btn btn-teal">Email Laura →</a>
+  </div>
+</div>
+
+<!-- WORKBOOK NOTE -->
+<div class="workbook-note">
+  If you found this worksheet useful and are looking for more tools like it,<br>
+  more resources for families navigating conflict are available at <a href="https://www.GradientResolutions.com" target="_blank">GradientResolutions.com</a>.
+</div>
+
+
+<script>
+  // ── SELECTED FORMAT ──────────────────────────────────────
+  let selectedFormat = 'email';
+
+  function setFormat(btn, format) {
+    document.querySelectorAll('.format-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedFormat = format;
+  }
+
+  // ── TOGGLE CHOICE ────────────────────────────────────────
+  function toggleChoice(btn) {
+    btn.classList.toggle('selected');
+  }
+
+  // ── RESISTANCE RESULT ────────────────────────────────────
+  const resistanceMessages = {
+    reluctance: {
+      label: "Not ready to make it real",
+      text: "Your sibling may not be resisting mediation specifically — they may be resisting the reality that something is changing between you. For them, keeping things vague feels safer than taking a step that makes the conflict official. The most effective approach is to give them a smaller ask: not 'let's do mediation' but 'would you be willing to find out what it is?' Keep the door wide open and the pressure off."
+    },
+    rebellion: {
+      label: "Protecting their autonomy",
+      text: "Your sibling's resistance is likely about control, not about mediation itself — especially if there's an old family role where one of you tended to lead. Being told what to do, even gently, triggers pushback. The key is to frame everything as their choice: they can speak to the mediator separately, they can say no at any point, nothing is decided without them. The invitation needs to feel like an option they're choosing, not a process being done to them."
+    },
+    resignation: {
+      label: "Doesn't believe it will work",
+      text: "Your sibling may have tried before — a hard conversation, a family gathering that went sideways — and been disappointed. They're not stubborn; they're protecting themselves from another failure. What tends to work here is not persuading them that mediation will succeed, but asking them to stay open to the possibility that this process is different from what you've tried on your own. One conversation. No commitment."
+    },
+    rationalizing: {
+      label: "Using logic to stay safe",
+      text: "Your sibling is building a case for why this won't work — which usually means they're more anxious than they're letting on. Logic is their armor. The best response isn't to counter their arguments but to give them more information, not less. Offering them a private conversation with the mediator — just for them, no joint session required — often works well, because it meets them where they are: in information-gathering mode."
+    }
+  };
+
+  function generateResult() {
+    const selected = document.querySelectorAll('.choice-btn.selected');
+    if (selected.length === 0) {
+      alert("Please select at least one option before continuing.");
+      return;
+    }
+
+    const typeCounts = { reluctance: 0, rebellion: 0, resignation: 0, rationalizing: 0 };
+    selected.forEach(btn => {
+      const t = btn.getAttribute('data-type');
+      if (t) typeCounts[t]++;
+    });
+
+    // Sort by count descending
+    const sorted = Object.entries(typeCounts)
+      .filter(([,v]) => v > 0)
+      .sort((a,b) => b[1] - a[1]);
+
+    let html = '';
+    if (sorted.length === 1) {
+      const [type] = sorted[0];
+      const msg = resistanceMessages[type];
+      html = `<strong>${msg.label}</strong><br><br>${msg.text}`;
+    } else {
+      html = 'Your sibling may be showing more than one kind of resistance — which is common. Here is what the pattern suggests:<br><br>';
+      sorted.forEach(([type]) => {
+        const msg = resistanceMessages[type];
+        html += `<strong>${msg.label}</strong><br>${msg.text}<br><br>`;
+      });
+      html += 'When someone is showing multiple patterns, keep your invitation simple and low-stakes — the more complex the ask, the more resistance it meets. One small step. Their choice.';
+    }
+
+    const resultBox = document.getElementById('resistance-result');
+    document.getElementById('result-text').innerHTML = html;
+    resultBox.classList.add('visible');
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // ── BUILD PROMPT ─────────────────────────────────────────
+  function buildPrompt() {
+    const r1 = document.getElementById('r1').value.trim();
+    const r2 = document.getElementById('r2').value.trim();
+    const r3 = document.getElementById('r3').value.trim();
+    const r4 = document.getElementById('r4').value.trim();
+
+    const selected = document.querySelectorAll('.choice-btn.selected');
+    const typeCounts = { reluctance: 0, rebellion: 0, resignation: 0, rationalizing: 0 };
+    selected.forEach(btn => {
+      const t = btn.getAttribute('data-type');
+      if (t) typeCounts[t]++;
+    });
+    const dominantTypes = Object.entries(typeCounts)
+      .filter(([,v]) => v > 0)
+      .sort((a,b) => b[1] - a[1])
+      .map(([type]) => resistanceMessages[type].label);
+
+    const formatInstructions = {
+      email: "Please help me write an email or text message inviting my sibling to consider mediation. It should be under 150 words, warm but not pleading, and should not preview anything I want from the process. Use the C.H.I.L.D. communication framework: Compassionate, Honest, Intentional, Low-Heat, and Direct.",
+      script: "Please help me write a short script for a conversation where I invite my sibling to consider mediation. Give me an opening, a way to handle pushback, and a clear close. Use the C.H.I.L.D. communication framework: Compassionate, Honest, Intentional, Low-Heat, and Direct.",
+      roleplay: "Please role play as my sibling so I can practice this conversation. Start by being resistant, and coach me after each exchange on how I could respond better. Use the C.H.I.L.D. communication framework to guide your feedback: Compassionate, Honest, Intentional, Low-Heat, and Direct."
+    };
+
+    let prompt = `I am trying to invite my sibling to consider mediation for a long-running family conflict between us. They are resistant. Here is what I know about their resistance:\n\n`;
+
+    if (dominantTypes.length > 0) {
+      prompt += `What their resistance looks like: ${dominantTypes.join(', ')}\n\n`;
+    }
+    if (r1) prompt += `Why we haven't been able to have this conversation on our own:\n${r1}\n\n`;
+    if (r2) prompt += `What I think their biggest objection will be:\n${r2}\n\n`;
+    if (r3) prompt += `Something my sibling might say I got wrong, that I'm willing to hear:\n${r3}\n\n`;
+    if (r4) prompt += `What I need to set aside before I reach out (winning, being right, old family roles):\n${r4}\n\n`;
+
+    prompt += `${formatInstructions[selectedFormat]}\n\n`;
+    prompt += `Please make clear that I am only asking for one conversation, not a commitment to a full process.\n\n`;
+    prompt += `Please do not save this conversation or use it for training.`;
+
+    document.getElementById('prompt-output').textContent = prompt;
+  }
+
+  // ── MESSENGER TIP (Part Zero, non-scoring) ──────────────
+  const messengerTips = {
+    me: "That's completely valid — some invitations carry more weight coming directly from you, especially if it shows you're willing to be the one to go first.",
+    parent: "A parent can be a good bridge, as long as they can stay neutral and simply pass along the invitation — not advocate for one side or relay old grievances.",
+    sibling: "A more neutral sibling can work well, especially in larger families where the conflict is really between two specific people rather than everyone.",
+    other: "Extended family can carry less day-to-day baggage, which sometimes makes an invitation easier to hear without triggering old dynamics."
+  };
+
+  function selectMessenger(btn, type) {
+    btn.parentElement.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    const tip = document.getElementById('messenger-tip');
+    tip.textContent = messengerTips[type];
+    tip.classList.add('visible');
+  }
+
+  // ── COPY TO CLIPBOARD ────────────────────────────────────
+  function copyPrompt() {
+    const text = document.getElementById('prompt-output').textContent;
+    if (text.includes('Click "Build my prompt"')) {
+      buildPrompt();
+      setTimeout(copyPrompt, 100);
+      return;
+    }
+    navigator.clipboard.writeText(text).then(() => {
+      const fb = document.getElementById('copy-feedback');
+      fb.classList.add('show');
+      setTimeout(() => fb.classList.remove('show'), 2500);
+    });
+  }
+</script>
+</body>
+</html>
