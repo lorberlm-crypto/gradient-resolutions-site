@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which path is right for us? — Gradient Resolutions</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy:       #1B3A4B;
+    --teal:       #2E9AA8;
+    --teal-dark:  #1E7A87;
+    --teal-light: #E8F6F8;
+    --gold:       #B8932A;
+    --grey-light: #F4F4F2;
+    --grey-rule:  #C8C8C8;
+    --text:       #1A1A1A;
+    --white:      #FFFFFF;
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: #F8F8F6;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 0 60px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .page-header {
+    background: var(--navy);
+    padding: 18px 40px 14px;
+  }
+  .page-header .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .page-header .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .intro {
+    background: var(--white);
+    padding: 22px 40px;
+    border-bottom: 1px solid var(--grey-rule);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .section {
+    background: var(--white);
+    margin: 16px 0 0;
+    padding: 28px 40px;
+    border-top: 3px solid var(--teal);
+  }
+
+  .section.dark {
+    background: var(--navy);
+    border-top: 3px solid var(--gold);
+  }
+
+  .section-number {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+
+  .section.dark .section-number { color: var(--gold); }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .section.dark h2 { color: var(--white); }
+
+  .section-desc {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .section.dark .section-desc { color: rgba(255,255,255,0.65); }
+
+  .question { margin-bottom: 26px; }
+
+  .question-text {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .section.dark .question-text { color: var(--white); }
+
+  .question-hint {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .section.dark .question-hint { color: rgba(255,255,255,0.5); }
+
+  /* Choice buttons */
+  .choices { display: flex; flex-direction: column; gap: 8px; }
+
+  .choice-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--grey-rule);
+    border-radius: 4px;
+    background: var(--white);
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.5;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .choice-btn:hover { border-color: var(--teal); background: var(--teal-light); }
+
+  .choice-btn.selected {
+    border-color: var(--teal);
+    background: var(--teal-light);
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .section.dark .choice-btn {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.2);
+    color: var(--white);
+  }
+
+  .section.dark .choice-btn:hover {
+    background: rgba(46,154,168,0.25);
+    border-color: var(--teal);
+  }
+
+  .section.dark .choice-btn.selected {
+    background: rgba(46,154,168,0.3);
+    border-color: var(--teal);
+    color: var(--white);
+  }
+
+  .check {
+    width: 18px; height: 18px; min-width: 18px;
+    border-radius: 50%;
+    border: 1.5px solid var(--grey-rule);
+    margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+  }
+
+  .choice-btn.selected .check { background: var(--teal); border-color: var(--teal); }
+  .choice-btn.selected .check::after {
+    content: ''; width: 6px; height: 6px;
+    border-radius: 50%; background: white;
+  }
+
+  /* Textarea */
+  textarea {
+    width: 100%; min-height: 80px;
+    padding: 10px 12px;
+    border: 1.5px solid var(--grey-rule);
+    border-radius: 3px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.6;
+    resize: vertical;
+    background: var(--grey-light);
+    transition: border-color 0.15s;
+    margin-top: 8px;
+  }
+
+  textarea:focus { outline: none; border-color: var(--teal); background: var(--white); }
+
+  .section.dark textarea {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.2);
+    color: var(--white);
+  }
+
+  .section.dark textarea:focus {
+    border-color: var(--teal);
+    background: rgba(255,255,255,0.12);
+  }
+
+  /* Insight box */
+  .insight-box {
+    background: var(--teal);
+    color: var(--white);
+    border-radius: 3px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.65;
+    display: none;
+  }
+  .insight-box.visible { display: block; }
+  .insight-box .insight-label {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 6px; opacity: 0.85;
+  }
+
+  /* Grey callout */
+  .callout-grey {
+    background: var(--grey-light);
+    border-left: 3px solid var(--teal);
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.65;
+    border-radius: 0 3px 3px 0;
+  }
+
+  /* Safety section special styling */
+  .safety-question {
+    background: rgba(184,147,42,0.08);
+    border: 1.5px solid var(--gold);
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin-bottom: 0;
+  }
+
+  .safety-label {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .safety-question .question-text { color: var(--white); }
+
+  .safety-question .choice-btn {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(184,147,42,0.3);
+    color: var(--white);
+  }
+
+  .safety-question .choice-btn:hover {
+    background: rgba(184,147,42,0.15);
+    border-color: var(--gold);
+  }
+
+  .safety-question .choice-btn.selected {
+    background: rgba(184,147,42,0.2);
+    border-color: var(--gold);
+  }
+
+  .safety-question .choice-btn.selected .check {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  /* Divider */
+  hr.soft { border: none; border-top: 1px solid var(--grey-rule); margin: 20px 0; }
+  .section.dark hr.soft { border-top-color: rgba(255,255,255,0.15); }
+
+  /* CHILD box */
+  .child-box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(46,154,168,0.4);
+    border-radius: 3px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+
+  .child-box .child-title {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 12px;
+  }
+
+  .child-row { display: flex; gap: 14px; margin-bottom: 8px; align-items: baseline; }
+
+  .child-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--teal); min-width: 22px; line-height: 1;
+  }
+
+  .child-word { font-size: 13px; line-height: 1.4; color: var(--white); }
+  .child-word strong { display: block; font-weight: 600; font-size: 13.5px; }
+  .child-word span { font-size: 12px; opacity: 0.65; }
+
+  /* Format chooser */
+  .format-chooser { margin: 16px 0 10px; }
+  .format-chooser label {
+    font-weight: 600; font-size: 13px;
+    color: var(--white); display: block; margin-bottom: 8px;
+  }
+  .format-options { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .format-btn {
+    padding: 7px 16px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    background: transparent;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px; cursor: pointer;
+    color: rgba(255,255,255,0.75);
+    transition: all 0.15s;
+  }
+
+  .format-btn:hover, .format-btn.active {
+    border-color: var(--teal);
+    background: rgba(46,154,168,0.2);
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* Prompt box */
+  .prompt-section {
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-left: 4px solid var(--teal);
+    border-radius: 3px;
+    padding: 16px 18px;
+    margin-top: 16px;
+  }
+
+  .prompt-section.gold-accent { border-left-color: var(--gold); }
+
+  .prompt-label {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 10px;
+  }
+
+  .prompt-section.gold-accent .prompt-label { color: var(--gold); }
+
+  .prompt-output {
+    font-size: 13px; line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    white-space: pre-wrap;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block; padding: 9px 20px;
+    border-radius: 3px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px; font-weight: 600;
+    cursor: pointer; border: none;
+    letter-spacing: 0.04em;
+    transition: opacity 0.15s;
+    text-decoration: none;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn-teal { background: var(--teal); color: var(--white); }
+  .btn-gold { background: var(--gold); color: var(--white); }
+  .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.35); }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; align-items: center; }
+
+  /* Privacy note */
+  .privacy-note {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 3px;
+    padding: 14px 18px;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.65);
+    margin-top: 20px;
+  }
+  .privacy-note strong { color: var(--white); }
+  .privacy-note a { color: var(--teal); text-decoration: none; }
+
+  .copy-feedback {
+    font-size: 12px; color: var(--teal);
+    opacity: 0; transition: opacity 0.3s; margin-left: 6px;
+  }
+  .copy-feedback.show { opacity: 1; }
+
+  .workbook-note {
+    text-align: center; padding: 24px 40px 10px;
+    font-size: 12px; color: #888; line-height: 1.6;
+  }
+  .workbook-note a { color: var(--teal); text-decoration: none; }
+
+  p { margin-bottom: 10px; }
+  p:last-child { margin-bottom: 0; }
+
+  .section-divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="title">Which path is right for us?</div>
+  <div class="subtitle">A reflective worksheet for families considering mediation or parenting coordination in California</div>
+</div>
+
+<div class="intro">
+  <p>This worksheet is most useful when completed individually, before any joint session. If you and your co-parent are filling it out separately, that is expected — you do not need to share your answers with each other before speaking with a professional.</p>
+  <p style="margin-top:10px;">Your answers stay with you. Nothing here is sent to anyone. At the end, you'll have the option to use your answers to draft an outreach to your attorney or your co-parent — with AI help.</p>
+</div>
+
+
+<!-- PART 1 — YOUR SITUATION -->
+<div class="section">
+  <div class="section-number">Part One</div>
+  <h2>Your situation</h2>
+  <p class="section-desc">Let's start with what's actually driving the conflict right now.</p>
+
+  <div class="question">
+    <div class="question-text">What is the primary source of conflict between you and your co-parent right now?</div>
+    <div class="question-hint">Select everything that applies.</div>
+    <div class="choices">
+      <button class="choice-btn" onclick="toggleChoice(this)"><span class="check"></span>How we communicate with each other</button>
+      <button class="choice-btn" onclick="toggleChoice(this)"><span class="check"></span>The custody or parenting time schedule</button>
+      <button class="choice-btn" onclick="toggleChoice(this)"><span class="check"></span>Decisions about school, healthcare, or activities</button>
+      <button class="choice-btn" onclick="toggleChoice(this)"><span class="check"></span>Exchange logistics — location, timing, transitions</button>
+      <button class="choice-btn" onclick="toggleChoice(this)"><span class="check"></span>One of us is not following the existing agreement</button>
+      <button class="choice-btn" onclick="toggleChoice(this)"><span class="check"></span>Our children are being drawn into the conflict</button>
+      <button class="choice-btn" onclick="toggleChoice(this)"><span class="check"></span>Financial issues related to the children</button>
+      <button class="choice-btn" onclick="toggleChoice(this)"><span class="check"></span>Something else</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-text">Is the primary issue about co-parenting specifically — or are there other unresolved matters from the divorce that are driving or complicating things?</div>
+    <div class="question-hint">Mediation can address a wide range of issues. Parenting coordination focuses specifically on the parenting plan and child-related decisions.</div>
+    <div class="choices">
+      <button class="choice-btn" data-key="scope" data-val="coparenting" onclick="selectOne(this)"><span class="check"></span>It is purely a co-parenting issue — the divorce itself is settled</button>
+      <button class="choice-btn" data-key="scope" data-val="mixed" onclick="selectOne(this)"><span class="check"></span>There are unresolved divorce matters (financial, property, support) underneath the co-parenting conflict</button>
+      <button class="choice-btn" data-key="scope" data-val="unsure" onclick="selectOne(this)"><span class="check"></span>I'm not sure — it feels tangled</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- PART 2 — YOUR EXISTING AGREEMENT -->
+<div class="section">
+  <div class="section-number">Part Two</div>
+  <h2>Your existing agreement</h2>
+  <p class="section-desc">What is already in place — and what isn't working?</p>
+
+  <div class="question">
+    <div class="question-text">Do you already have a co-parenting or custody agreement in place?</div>
+    <div class="choices">
+      <button class="choice-btn" data-key="agreement" data-val="court" onclick="selectOne(this)"><span class="check"></span>Yes — a court-ordered parenting plan</button>
+      <button class="choice-btn" data-key="agreement" data-val="informal" onclick="selectOne(this)"><span class="check"></span>Yes — an informal agreement we follow</button>
+      <button class="choice-btn" data-key="agreement" data-val="none" onclick="selectOne(this)"><span class="check"></span>No — we don't have one yet</button>
+      <button class="choice-btn" data-key="agreement" data-val="partial" onclick="selectOne(this)"><span class="check"></span>Partially — some things are agreed, others aren't</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-text">What parts of your agreement — or your co-parenting relationship — are working reasonably well?</div>
+    <textarea id="q-working" placeholder="Write your thoughts here..."></textarea>
+  </div>
+
+  <div class="question">
+    <div class="question-text">What parts are not working? Where does the conflict most often show up?</div>
+    <textarea id="q-notworking" placeholder="Write your thoughts here..."></textarea>
+  </div>
+</div>
+
+
+<!-- PART 3 — REPRESENTATION -->
+<div class="section">
+  <div class="section-number">Part Three</div>
+  <h2>Legal representation</h2>
+  <p class="section-desc">This shapes how any process gets started and who needs to be involved.</p>
+
+  <div class="question">
+    <div class="question-text">Are you represented by an attorney in your divorce or custody case?</div>
+    <div class="choices">
+      <button class="choice-btn" data-key="myatty" data-val="yes" onclick="selectOne(this)"><span class="check"></span>Yes</button>
+      <button class="choice-btn" data-key="myatty" data-val="no" onclick="selectOne(this)"><span class="check"></span>No</button>
+      <button class="choice-btn" data-key="myatty" data-val="former" onclick="selectOne(this)"><span class="check"></span>I was, but am no longer represented</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-text">Is your co-parent represented by an attorney?</div>
+    <div class="choices">
+      <button class="choice-btn" data-key="theatty" data-val="yes" onclick="selectOne(this)"><span class="check"></span>Yes</button>
+      <button class="choice-btn" data-key="theatty" data-val="no" onclick="selectOne(this)"><span class="check"></span>No</button>
+      <button class="choice-btn" data-key="theatty" data-val="unsure" onclick="selectOne(this)"><span class="check"></span>I'm not sure</button>
+    </div>
+  </div>
+
+  <div id="atty-note" class="callout-grey" style="display:none;">
+    When one or both parties are represented, the decision to pursue mediation or parenting coordination will typically involve counsel. Attorneys are often the primary contact with the court, and any agreement will be reviewed before filing. If you have an attorney, talk to them before scheduling anything.
+  </div>
+</div>
+
+
+<!-- PART 4 — YOUR CO-PARENT -->
+<div class="section">
+  <div class="section-number">Part Four</div>
+  <h2>Where things stand between you</h2>
+  <p class="section-desc">Understanding your co-parent's position helps shape how you approach the next conversation.</p>
+
+  <div class="question">
+    <div class="question-text">Have you discussed the possibility of mediation or parenting coordination with your co-parent?</div>
+    <div class="choices">
+      <button class="choice-btn" data-key="discussed" data-val="open" onclick="selectOne(this)"><span class="check"></span>Yes — they are open to it</button>
+      <button class="choice-btn" data-key="discussed" data-val="resistant" onclick="selectOne(this)"><span class="check"></span>Yes — they were resistant or said no</button>
+      <button class="choice-btn" data-key="discussed" data-val="notyetme" onclick="selectOne(this)"><span class="check"></span>No — I haven't raised it yet</button>
+      <button class="choice-btn" data-key="discussed" data-val="cantspeak" onclick="selectOne(this)"><span class="check"></span>We are not able to discuss things directly</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-text">What do you think is getting in the way for your co-parent — if anything?</div>
+    <div class="question-hint">Not what you wish they felt. What you actually observe.</div>
+    <textarea id="q-coparent" placeholder="Write your thoughts here..."></textarea>
+  </div>
+</div>
+
+
+<!-- PART 5 — THE KEY QUESTION -->
+<div class="section">
+  <div class="section-number">Part Five</div>
+  <h2>The question that often decides the path</h2>
+  <p class="section-desc">This is the most important question in the worksheet. Take your time with it.</p>
+
+  <div class="question">
+    <div class="question-text">When you and your co-parent cannot agree on a decision about your child, what do you want to happen?</div>
+    <div class="choices">
+      <button class="choice-btn" data-key="path" data-val="mediation" onclick="selectOne(this); showPathInsight()"><span class="check"></span>I want us to keep working until we find our own answer — I don't want someone else deciding for us</button>
+      <button class="choice-btn" data-key="path" data-val="pc" onclick="selectOne(this); showPathInsight()"><span class="check"></span>I want a trained professional to be able to make a decision when we genuinely cannot — to avoid repeated court hearings</button>
+      <button class="choice-btn" data-key="path" data-val="unsure" onclick="selectOne(this); showPathInsight()"><span class="check"></span>I'm not sure — it depends on the issue</button>
+    </div>
+    <div id="path-insight" class="insight-box" style="margin-top:14px;"></div>
+  </div>
+
+  <div class="callout-grey">
+    <strong>A note on parenting coordination:</strong> Choosing a PC does not mean giving up your voice. You participate in every decision. The PC's authority to decide only activates when both parties have genuinely tried and failed to agree — and any decision can be brought to the court for review.
+  </div>
+</div>
+
+
+<!-- PART 6 — SAFETY (placed after engagement, framed warmly) -->
+<div class="section dark">
+  <div class="section-number">Part Six</div>
+  <h2>Your safety and wellbeing</h2>
+  <p class="section-desc">Every professional process needs to be designed around your specific situation. This question helps make sure nothing important gets missed.</p>
+
+  <div class="safety-question">
+    <div class="safety-label">A question worth answering honestly</div>
+    <div class="question-text" style="margin-bottom:12px;">Are there any safety concerns, power dynamics, or patterns in your co-parenting relationship that a professional should be aware of before designing a process with you?</div>
+    <div class="question-hint" style="color:rgba(255,255,255,0.5); margin-bottom:14px;">This includes — but is not limited to — domestic violence, restraining orders, substance use, mental health concerns, or anything that affects how safely you can be in the same room or process together. You do not have to have a court order for this to matter.</div>
+    <div class="choices">
+      <button class="choice-btn" data-key="safety" data-val="none" onclick="selectOne(this); showSafetyNote()"><span class="check"></span>No — I don't have concerns about safety or power dynamics</button>
+      <button class="choice-btn" data-key="safety" data-val="yes" onclick="selectOne(this); showSafetyNote()"><span class="check"></span>Yes — there are things a professional should know</button>
+      <button class="choice-btn" data-key="safety" data-val="unsure" onclick="selectOne(this); showSafetyNote()"><span class="check"></span>I'm not sure how to characterize it, but something feels relevant</button>
+    </div>
+    <div id="safety-note" class="insight-box" style="margin-top:14px; background: rgba(184,147,42,0.25); border: 1px solid var(--gold);"></div>
+    <textarea id="q-safety" placeholder="If you'd like to describe what's relevant, you can do so here. This is private — it goes nowhere except into your AI prompt if you choose to include it." style="margin-top:14px;"></textarea>
+  </div>
+</div>
+
+
+<!-- PART 7 — ANYTHING ELSE -->
+<div class="section dark">
+  <div class="section-number">Part Seven</div>
+  <h2>Anything else</h2>
+  <p class="section-desc">Is there anything about your situation — history, context, concerns about the process — that a professional should know before your first conversation?</p>
+
+  <textarea id="q-other" placeholder="Write your thoughts here..."></textarea>
+</div>
+
+
+<!-- PART 8 — AI PROMPTS -->
+<div class="section dark">
+  <div class="section-number">Part Eight</div>
+  <h2>Use your answers — with AI help</h2>
+  <p class="section-desc">You've done the thinking. Now put it to work. Choose who you need to reach out to first.</p>
+
+  <hr class="soft">
+
+  <!-- ATTORNEY PROMPT -->
+  <div class="question" style="margin-bottom:32px;">
+    <div class="question-text">Reaching out to your attorney</div>
+    <div class="question-hint">A clear, organized summary of your situation to share with counsel — or to help you prepare for that conversation.</div>
+
+    <div class="prompt-section gold-accent">
+      <div class="prompt-label">Your AI prompt for your attorney — copy and take to Claude.ai</div>
+      <div class="prompt-output" id="atty-prompt-output">Click "Build attorney prompt" below to assemble your answers.</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-gold" onclick="buildAttyPrompt()">Build attorney prompt</button>
+      <button class="btn btn-outline" onclick="copyPrompt('atty-prompt-output', 'atty-copy-feedback')">Copy to clipboard</button>
+      <span class="copy-feedback" id="atty-copy-feedback">Copied!</span>
+    </div>
+  </div>
+
+  <hr class="soft">
+
+  <!-- CO-PARENT PROMPT -->
+  <div class="question">
+    <div class="question-text">Reaching out to your co-parent</div>
+    <div class="question-hint">Use the C.H.I.L.D. framework to draft a message or practice the conversation.</div>
+
+    <div class="child-box">
+      <div class="child-title">The C.H.I.L.D. communication framework</div>
+      <div class="child-row"><div class="child-letter">C</div><div class="child-word"><strong>Child-Focused</strong><span>Keep your child's wellbeing at the center</span></div></div>
+      <div class="child-row"><div class="child-letter">H</div><div class="child-word"><strong>Honest</strong><span>Say what is true without embellishing or omitting</span></div></div>
+      <div class="child-row"><div class="child-letter">I</div><div class="child-word"><strong>Intentional</strong><span>Every word earns its place — nothing is vented</span></div></div>
+      <div class="child-row"><div class="child-letter">L</div><div class="child-word"><strong>Low-Heat</strong><span>Calm in tone even when the situation isn't</span></div></div>
+      <div class="child-row"><div class="child-letter">D</div><div class="child-word"><strong>Direct</strong><span>Clear about what you are asking, without ultimatum</span></div></div>
+    </div>
+
+    <div class="format-chooser">
+      <label>What would you like to create?</label>
+      <div class="format-options">
+        <button class="format-btn active" onclick="setFormat(this, 'email')">An email or text message</button>
+        <button class="format-btn" onclick="setFormat(this, 'script')">A script for a conversation</button>
+        <button class="format-btn" onclick="setFormat(this, 'roleplay')">A role play to practice</button>
+      </div>
+    </div>
+
+    <div class="prompt-section">
+      <div class="prompt-label">Your AI prompt for your co-parent — copy and take to Claude.ai</div>
+      <div class="prompt-output" id="coparent-prompt-output">Click "Build co-parent prompt" below to assemble your answers.</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-teal" onclick="buildCoparentPrompt()">Build co-parent prompt</button>
+      <button class="btn btn-outline" onclick="copyPrompt('coparent-prompt-output', 'coparent-copy-feedback')">Copy to clipboard</button>
+      <span class="copy-feedback" id="coparent-copy-feedback">Copied!</span>
+    </div>
+  </div>
+
+  <div class="privacy-note">
+    <strong>A note on privacy.</strong> I recommend <a href="https://claude.ai" target="_blank">Claude.ai</a> for this work. Unlike some AI tools, Claude does not remember your conversations by default — what you share stays in that session and is not used to train the model. If you want Claude to remember something for future sessions, you can tell it to. Otherwise, your conversation is private to you.<br><br>
+    When you start your Claude session, treat it like a conversation at a coffee shop — someone might be nearby. Use first names only, no identifying details. Then paste your prompt and get to work.
+  </div>
+
+  <div class="btn-row" style="margin-top:16px;">
+    <a href="https://claude.ai" target="_blank" class="btn btn-teal">Open Claude.ai →</a>
+  </div>
+</div>
+
+<div class="workbook-note">
+  If you found this worksheet useful and are looking for more tools like it,<br>
+  a full workbook for families navigating this process is available at <a href="https://www.GradientResolutions.com" target="_blank">GradientResolutions.com</a>.
+</div>
+
+<script>
+  let selectedFormat = 'email';
+
+  function toggleChoice(btn) { btn.classList.toggle('selected'); }
+
+  function selectOne(btn) {
+    const key = btn.getAttribute('data-key');
+    if (!key) return;
+    document.querySelectorAll(`.choice-btn[data-key="${key}"]`).forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    if (key === 'myatty' || key === 'theatty') {
+      const myAtty = document.querySelector('.choice-btn[data-key="myatty"].selected');
+      const theirAtty = document.querySelector('.choice-btn[data-key="theatty"].selected');
+      const note = document.getElementById('atty-note');
+      if ((myAtty && myAtty.dataset.val === 'yes') || (theirAtty && theirAtty.dataset.val === 'yes')) {
+        note.style.display = 'block';
+      } else {
+        note.style.display = 'none';
+      }
+    }
+  }
+
+  function setFormat(btn, format) {
+    document.querySelectorAll('.format-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedFormat = format;
+  }
+
+  function showPathInsight() {
+    const selected = document.querySelector('.choice-btn[data-key="path"].selected');
+    if (!selected) return;
+    const val = selected.dataset.val;
+    const box = document.getElementById('path-insight');
+    const messages = {
+      mediation: 'Mediation may be the right starting point. You retain full decision-making authority — the mediator facilitates but never decides. It works best when both parties are willing to engage and when the goal is reaching your own durable agreement.',
+      pc: 'Parenting coordination may be the better fit. A PC can make binding decisions when you genuinely cannot agree — reducing court involvement and protecting your child from repeated conflict. In California, both parties must agree and sign a court order to begin.',
+      unsure: "That's a reasonable place to be — and it's a good question to bring to a first consultation. The answer often depends on how stuck things are, whether there is an existing court order, and what both parties are actually willing to agree to."
+    };
+    box.innerHTML = `<div class="insight-label">What this suggests</div>${messages[val]}`;
+    box.classList.add('visible');
+  }
+
+  function showSafetyNote() {
+    const selected = document.querySelector('.choice-btn[data-key="safety"].selected');
+    if (!selected) return;
+    const val = selected.dataset.val;
+    const box = document.getElementById('safety-note');
+    const messages = {
+      none: 'Thank you for answering. If anything changes or comes to mind as you move through the process, any professional you work with will want to know.',
+      yes: 'This matters — and disclosing it before your first session is important. Any professional designing a process with you needs to know so they can structure it safely. You do not have to have a formal order for safety concerns to shape how the process works.',
+      unsure: "If something feels relevant, it probably is. You don't have to be certain or have a label for it. Sharing it with a professional — even just as a feeling — allows them to ask the right questions and design a process that works for your situation."
+    };
+    box.innerHTML = `<div class="insight-label" style="color:var(--gold)">A note</div>${messages[val]}`;
+    box.style.display = 'block';
+  }
+
+  function getSelectedLabels(key) {
+    return Array.from(document.querySelectorAll(`.choice-btn[data-key="${key}"].selected`))
+      .map(b => b.textContent.trim());
+  }
+
+  function getMultiSelected(questionIndex) {
+    const allGroups = document.querySelectorAll('.choices');
+    if (!allGroups[questionIndex]) return [];
+    return Array.from(allGroups[questionIndex].querySelectorAll('.choice-btn.selected'))
+      .map(b => b.textContent.trim());
+  }
+
+  function buildAttyPrompt() {
+    const conflicts = Array.from(document.querySelectorAll('.choices')[0].querySelectorAll('.choice-btn.selected')).map(b => b.textContent.trim());
+    const scope = getSelectedLabels('scope')[0] || '';
+    const agreement = getSelectedLabels('agreement')[0] || '';
+    const working = document.getElementById('q-working').value.trim();
+    const notWorking = document.getElementById('q-notworking').value.trim();
+    const myAtty = getSelectedLabels('myatty')[0] || '';
+    const theirAtty = getSelectedLabels('theatty')[0] || '';
+    const discussed = getSelectedLabels('discussed')[0] || '';
+    const path = getSelectedLabels('path')[0] || '';
+    const safety = getSelectedLabels('safety')[0] || '';
+    const safetyDetail = document.getElementById('q-safety').value.trim();
+    const other = document.getElementById('q-other').value.trim();
+
+    let prompt = `I am preparing for a conversation with my attorney about whether to pursue mediation or parenting coordination. Here is a summary of my situation:\n\n`;
+
+    if (conflicts.length) prompt += `Primary sources of conflict: ${conflicts.join('; ')}\n\n`;
+    if (scope) prompt += `Scope: ${scope}\n\n`;
+    if (agreement) prompt += `Existing agreement: ${agreement}\n`;
+    if (working) prompt += `What is working: ${working}\n`;
+    if (notWorking) prompt += `What is not working: ${notWorking}\n\n`;
+    if (myAtty) prompt += `My representation: ${myAtty}\n`;
+    if (theirAtty) prompt += `Co-parent's representation: ${theirAtty}\n\n`;
+    if (discussed) prompt += `Co-parent's response to the idea: ${discussed}\n\n`;
+    if (path) prompt += `What I want when we cannot agree: ${path}\n\n`;
+    if (safety && safety !== 'No — I don\'t have concerns about safety or power dynamics') {
+      prompt += `Safety or power dynamics: ${safety}`;
+      if (safetyDetail) prompt += ` — ${safetyDetail}`;
+      prompt += `\n\n`;
+    }
+    if (other) prompt += `Additional context: ${other}\n\n`;
+
+    prompt += `Please help me prepare for this attorney conversation. I would like:\n1. A clear summary of my situation I can share with or read to my attorney\n2. The key questions I should ask about mediation vs. parenting coordination given my situation\n3. Anything I should know or flag before the conversation\n\nPlease do not save this conversation or use it for training.`;
+
+    document.getElementById('atty-prompt-output').textContent = prompt;
+  }
+
+  function buildCoparentPrompt() {
+    const conflicts = Array.from(document.querySelectorAll('.choices')[0].querySelectorAll('.choice-btn.selected')).map(b => b.textContent.trim());
+    const notWorking = document.getElementById('q-notworking').value.trim();
+    const coparentNote = document.getElementById('q-coparent').value.trim();
+    const discussed = getSelectedLabels('discussed')[0] || '';
+    const path = getSelectedLabels('path')[0] || '';
+
+    const formatInstructions = {
+      email: 'Please help me write an email or text message to my co-parent proposing that we explore mediation or parenting coordination together. It should be under 150 words, warm but not pleading, and focused on our child — not on our conflict. Use the C.H.I.L.D. communication framework: Child-Focused, Honest, Intentional, Low-Heat, and Direct.',
+      script: 'Please help me write a short script for a conversation with my co-parent proposing that we explore mediation or parenting coordination. Give me an opening, a way to handle resistance, and a clear close. Use the C.H.I.L.D. communication framework: Child-Focused, Honest, Intentional, Low-Heat, and Direct.',
+      roleplay: 'Please role play as my co-parent so I can practice this conversation. Start by being somewhat resistant, and coach me after each exchange on how I could respond better. Use the C.H.I.L.D. communication framework to guide your feedback: Child-Focused, Honest, Intentional, Low-Heat, and Direct.'
+    };
+
+    let prompt = `I need to reach out to my co-parent about exploring mediation or parenting coordination. Here is the context:\n\n`;
+
+    if (conflicts.length) prompt += `What we are struggling with: ${conflicts.join('; ')}\n\n`;
+    if (notWorking) prompt += `What is not currently working: ${notWorking}\n\n`;
+    if (discussed) prompt += `Their current position: ${discussed}\n\n`;
+    if (coparentNote) prompt += `What I think is getting in the way for them: ${coparentNote}\n\n`;
+    if (path) prompt += `What I am hoping for: ${path}\n\n`;
+
+    prompt += `${formatInstructions[selectedFormat]}\n\nPlease do not save this conversation or use it for training.`;
+
+    document.getElementById('coparent-prompt-output').textContent = prompt;
+  }
+
+  function copyPrompt(outputId, feedbackId) {
+    const text = document.getElementById(outputId).textContent;
+    if (text.includes('Click "Build')) {
+      if (outputId.includes('atty')) buildAttyPrompt();
+      else buildCoparentPrompt();
+      setTimeout(() => copyPrompt(outputId, feedbackId), 100);
+      return;
+    }
+    navigator.clipboard.writeText(text).then(() => {
+      const fb = document.getElementById(feedbackId);
+      fb.classList.add('show');
+      setTimeout(() => fb.classList.remove('show'), 2500);
+    });
+  }
+</script>
+</body>
+</html>
