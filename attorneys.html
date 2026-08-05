@@ -115,6 +115,22 @@
   .page-title .lede { font-family: 'Comfortaa', sans-serif; font-weight: 600; font-size: 16px; color: var(--orange-dark); margin-bottom: 22px; }
   .page-title p { font-size: 15.5px; color: #444; max-width: 640px; margin: 0 auto 14px; text-align: left; }
 
+  .hero-wrap { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1fr 300px; align-items: stretch; }
+  .hero-main { padding: 56px 48px 48px 40px; }
+  .hero-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; }
+  .hero-headline { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 30px; color: var(--navy); line-height: 1.35; margin-bottom: 16px; text-align: left; }
+  .hero-lede { font-family: 'Comfortaa', sans-serif; font-weight: 600; font-size: 16px; color: var(--orange-dark); line-height: 1.55; text-align: left; margin-bottom: 14px; }
+  .hero-close { font-weight: 600; color: var(--navy); font-size: 15px; text-align: left; }
+  .hero-sidebar { background: var(--navy); padding: 44px 32px; display: flex; flex-direction: column; justify-content: center; }
+  .hero-quote { font-family: 'Comfortaa', sans-serif; font-weight: 600; font-size: 16.5px; color: white; line-height: 1.55; margin-bottom: 18px; }
+  .hero-signature { max-width: 190px; height: auto; display: block; }
+
+  @media (max-width: 760px) {
+    .hero-wrap { grid-template-columns: 1fr; }
+    .hero-main { padding: 40px 24px 32px; }
+    .hero-sidebar { padding: 32px 24px; }
+  }
+
   .body-section { max-width: 760px; margin: 30px auto 0; padding: 0 40px; }
   .body-section h2 { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 21px; color: var(--navy); margin-bottom: 18px; line-height: 1.4; }
   .body-section p { font-size: 15px; color: #333; margin-bottom: 16px; }
@@ -183,12 +199,17 @@
   <a href="index.html">Home</a> &nbsp;/&nbsp; For attorneys &amp; divorce pros
 </div>
 
-<div class="page-title">
-  <div style="font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); margin-bottom:16px;">Laura Lorber, J.D., MC3 Mediator and Parent Coordinator</div>
-  <p style="font-family:'Comfortaa', sans-serif; font-weight:700; font-size:19px; color:var(--navy); line-height:1.5; margin-bottom:16px; text-align:center;">Judges send me their highest-conflict cases. I bring the conflict down until two parents can talk about tomorrow's pick-up without a courtroom.</p>
-  <h1>When your client is escalating and the process is stalling, you need a pinch hitter.</h1>
-  <div class="lede">Not someone who takes over the game. Someone who steps in for one at-bat, changes the momentum, and hands it back so you can close.</div>
-  <p style="text-align:center; font-weight:600; color:var(--navy);">That's what I do.</p>
+<div class="hero-wrap">
+  <div class="hero-main">
+    <div class="hero-eyebrow">Laura Lorber, J.D., MC3 Mediator and Parent Coordinator</div>
+    <h1 class="hero-headline">When your client is escalating and the process is stalling, you need a pinch hitter.</h1>
+    <div class="hero-lede">Not someone who takes over the game. Someone who steps in for one at-bat, changes the momentum, and hands it back so you can close.</div>
+    <p class="hero-close">That's what I do.</p>
+  </div>
+  <div class="hero-sidebar">
+    <div class="hero-quote">Judges send me their highest-conflict cases. I bring the conflict down until two parents can talk about tomorrow's pick-up without a courtroom.</div>
+    <img src="mediator-laura-signature.png" alt="Mediator Laura" class="hero-signature">
+  </div>
 </div>
 
 <div class="body-section">
