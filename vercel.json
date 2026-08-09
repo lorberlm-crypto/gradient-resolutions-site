@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/workbook",
+      "destination": "/workbook.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/services-store/p/your-co-parenting-plan-blueprint-the-step-by-step-workbook-to-deign-a-stable-detailed-parenting-plan",
+      "destination": "/workbook.html",
+      "permanent": true
+    }
+  ]
+}
