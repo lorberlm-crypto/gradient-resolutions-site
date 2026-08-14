@@ -193,6 +193,20 @@
   .referral-card ul { margin: 0 0 14px; padding-left: 20px; font-size: 14.5px; color: #333; }
   .referral-card ul li { margin-bottom: 8px; }
   .referral-card .rp-footnote { font-size: 12.5px; color: #888; margin-top: 10px; line-height: 1.6; }
+
+  /* DOWNLOADABLE RESOURCES */
+  .resources-grid { max-width: 760px; margin: 26px auto 0; padding: 0 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .resource-card { background: white; border: 1px solid #eee; border-radius: 14px; padding: 24px 22px; display: flex; flex-direction: column; }
+  .resource-card .res-name { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 6px; }
+  .resource-card .res-desc { font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 18px; flex-grow: 1; }
+  .resource-card .res-link { font-family: 'Comfortaa', sans-serif; font-weight: 600; font-size: 13px; color: var(--orange-dark); text-decoration: none; }
+  .resource-card .res-link:after { content: " →"; }
+
+  @media (max-width: 640px) {
+    .box-grid { grid-template-columns: 1fr; }
+    .closing-ctas { flex-direction: column; }
+    .resources-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -276,8 +290,8 @@
   <div class="referral-card">
     <div class="rp-name">The Pinch Hit</div>
     <div class="rp-price">$1,000</div>
-    <div class="rp-subtitle">One issue inside a case that's otherwise moving.</div>
-    <p>Most cases don't need a full mediation to get unstuck — they need one specific, hard question resolved without reopening the rest of the file. The Pinch Hit is a bounded, single-issue intervention, built for the case that's 90% agreed and stuck on the last 10%.</p>
+    <div class="rp-subtitle">One issue holding up a case that's otherwise moving.</div>
+    <p>Most cases don't need a full mediation to get unstuck — they need one specific, hard question resolved before it derails everything else. The Pinch Hit is a bounded, single-issue intervention, built for the case where one issue — not the whole file — is what's stalling progress or escalating into high-conflict interactions.</p>
     <p><span style="font-weight:600; color:var(--navy);">What's included:</span></p>
     <ul>
       <li>Both parties complete two short, targeted sections of my <em>Co-Parenting Plan Blueprint</em> workbook before we meet — temperament charting on the child at the center of the issue, and the exchange-protocol section most relevant to the dispute. This is homework I can't do the work without, and it starts the shift from litigant to observer before either parent is in my office.</li>
@@ -307,6 +321,33 @@
     <p>For families with an existing order or agreement that isn't holding — where the same disputes keep resurfacing and someone with standing needs to be available to resolve them as they come up, rather than sending the family back to court each time. This is established by agreement or stipulation between the parties.</p>
     <p>Engagement typically begins with a joint intake session and individual sessions with each parent, then settles into a cadence based on what the family needs: often weekly or every two weeks at the start while structure is being established, tapering to monthly and eventually quarterly check-ins as the framework holds.</p>
     <p>Billed hourly; scope and rate confirmed at consultation based on the case. <a href="pc.html" style="color:var(--orange-dark); font-weight:500;">More on how parenting coordination works →</a></p>
+  </div>
+
+</div>
+
+<div class="body-section" style="margin-top:36px;">
+  <h2>Take these with you</h2>
+  <p>Three tools built out of the same lens described above — keep them, print them, pass them along.</p>
+</div>
+
+<div class="resources-grid">
+
+  <div class="resource-card">
+    <div class="res-name">Referral Checklist</div>
+    <div class="res-desc">Keep this at your desk. A fast, checkbox gut-check for whether a case in front of you is worth a referral call — no pricing, no prose, just the pattern.</div>
+    <a href="referral-checklist.pdf" target="_blank" class="res-link">Download the checklist</a>
+  </div>
+
+  <div class="resource-card">
+    <div class="res-name">A Reflective Worksheet</div>
+    <div class="res-desc">Something slower. Pull out a real case — current or closed — and work through it using the same lens I use walking into a room. Best printed and answered by hand.</div>
+    <a href="reflection-worksheet.pdf" target="_blank" class="res-link">Download the worksheet</a>
+  </div>
+
+  <div class="resource-card">
+    <div class="res-name">Referral Guide</div>
+    <div class="res-desc">Full detail on all three packages, pricing included. Useful to keep for yourself, or to pass along to a client or another professional weighing whether this is the right next step.</div>
+    <a href="referral-onesheet.pdf" target="_blank" class="res-link">Download the guide</a>
   </div>
 
 </div>
