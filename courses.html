@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses — Gradient Resolutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange-dark: #E66414;
+  --orange-light: #FF924D;
+  --teal-light: #9AD3DA;
+  --teal: #00A8A8;
+  --navy: #03444A;
+  --text: #1A1A1A;
+  --grey-bg: #FAFAF8;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--grey-bg);
+  color: var(--text);
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: 'Comfortaa', sans-serif;
+  color: var(--navy);
+  margin: 0;
+}
+
+a { color: var(--teal); }
+
+/* ---- Site nav (matches gradientresolutions.com) ---- */
+nav {
+  background: white;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  background: linear-gradient(90deg, var(--orange-dark), var(--teal), var(--navy));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.nav-links a { color: var(--text); text-decoration: none; }
+.nav-email { font-size: 12px; color: #888; }
+
+.nav-cta {
+  background: var(--teal);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- Hero ---- */
+.hero {
+  padding: 64px 0 56px;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.3;
+  max-width: 16ch;
+  letter-spacing: -0.01em;
+}
+
+.hero p {
+  margin-top: 20px;
+  max-width: 54ch;
+  font-size: 1.05rem;
+  color: #444;
+}
+
+/* ---- Quick actions (signup / host-me) ---- */
+.quick-actions {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid #DDE5E3;
+}
+
+.quick-actions a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--teal-light);
+  padding-bottom: 2px;
+}
+
+.quick-actions a:hover {
+  border-bottom-color: var(--teal);
+}
+
+/* ---- Course card (dossier style, not a SaaS card) ---- */
+.courses-section {
+  padding: 8px 0 64px;
+}
+
+.section-heading {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+.course {
+  border-left: 4px solid var(--teal);
+  padding: 4px 0 4px 28px;
+  margin-bottom: 56px;
+}
+
+.course-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.28;
+  max-width: 28ch;
+}
+
+.course-meta {
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: var(--navy);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+}
+
+.course-meta span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.course-meta strong {
+  font-weight: 600;
+}
+
+.course-synopsis {
+  margin-top: 18px;
+  max-width: 62ch;
+  font-size: 1.02rem;
+  color: #274142;
+}
+
+.course-format {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  color: #4B6567;
+}
+
+.course-actions {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.catalog-cta {
+  display: inline-block;
+  background: var(--orange-dark);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 22px;
+  border-radius: 3px;
+}
+
+.catalog-cta:hover {
+  background: var(--orange-light);
+}
+
+.materials-link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--teal);
+}
+
+.more-soon {
+  color: #5C7577;
+  font-size: 0.95rem;
+  font-style: italic;
+  border-left: 4px solid var(--teal-light);
+  padding: 4px 0 4px 28px;
+}
+
+/* ---- Divider / gated-page header ---- */
+.zone-divider {
+  background: var(--navy);
+  padding: 56px 0;
+  margin-top: 24px;
+}
+
+.zone-divider .wrap { text-align: left; }
+
+.zone-divider h2 {
+  color: var(--grey-bg);
+  font-size: 1.5rem;
+  font-weight: 500;
+  max-width: 32ch;
+}
+
+.zone-divider p {
+  color: var(--teal-light);
+  max-width: 52ch;
+  margin-top: 12px;
+  font-size: 0.98rem;
+}
+
+.zone-divider .back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--teal-light);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.zone-divider .back-link:hover { color: #fff; }
+
+/* ---- Gate panel ---- */
+.gate-panel {
+  background: #fff;
+  border: 1px solid #E1E6E4;
+  border-radius: 4px;
+  padding: 32px;
+  margin-top: -28px;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(3, 68, 74, 0.08);
+}
+
+.gate-panel label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.gate-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.gate-row input[type="password"] {
+  flex: 1 1 220px;
+  padding: 12px 14px;
+  border: 1px solid #C9D3D1;
+  border-radius: 3px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.gate-row button {
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.gate-row button:hover { background: var(--navy); }
+
+.gate-error {
+  color: var(--orange-dark);
+  font-size: 0.9rem;
+  margin-top: 10px;
+  display: none;
+}
+
+.gate-error.show { display: block; }
+
+/* ---- Gated content ---- */
+.materials {
+  padding: 48px 0 96px;
+  display: none;
+}
+
+.materials.unlocked { display: block; }
+
+#gate-locked.hidden { display: none; }
+
+.material-block {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #E1E6E4;
+}
+
+.material-block:last-child { border-bottom: none; }
+
+.material-block h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.material-block p {
+  font-size: 0.98rem;
+  color: #33504F;
+  margin: 0 0 12px;
+}
+
+.material-link {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--teal);
+}
+
+.license-note {
+  background: var(--grey-bg);
+  border: 1px solid var(--teal-light);
+  border-radius: 3px;
+  padding: 14px 16px;
+  font-size: 0.86rem;
+  color: #4B6567;
+  margin-top: 12px;
+}
+
+.emotion-wheel-img {
+  display: block;
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  margin-top: 16px;
+  border-radius: 4px;
+  border: 1px solid #E1E6E4;
+  -webkit-touch-callout: none;
+}
+
+.citations ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.citations li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.citations .no-link { color: #33504F; }
+
+.coming-soon {
+  border: 1px dashed var(--teal-light);
+  border-radius: 4px;
+  padding: 28px;
+  text-align: left;
+  color: #4B6567;
+  font-size: 0.98rem;
+}
+
+.coming-soon strong {
+  display: block;
+  color: var(--navy);
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+}
+
+footer {
+  padding: 32px 0 64px;
+  font-size: 0.88rem;
+  color: #6C8688;
+}
+
+footer a { color: var(--navy); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Gradient Resolutions</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="workbook.html">Workbook</a>
+    <a href="about.html">About</a>
+    <a href="courses.html">Courses</a>
+    <span class="nav-email">Laura@GradientResolutions.com</span>
+    <a href="mailto:Laura@GradientResolutions.com" style="text-decoration:none;"><div class="nav-cta">Email Laura</div></a>
+  </div>
+</nav>
+
+  <div class="wrap hero">
+    <h1>Your family's hardest conversations, with a framework underneath them.</h1>
+    <p>Workshops for parents navigating the moments that feel hardest to talk about — built on research, not guesswork, and taught by a family mediator who does this work every day.</p>
+
+    <div class="quick-actions">
+      <a href="mailto:Laura@GradientResolutions.com?subject=Interested%20in%20a%20course">I'm interested in signing up</a>
+      <a href="mailto:Laura@GradientResolutions.com?subject=Host%20a%20class">Have Laura teach at your school or organization</a>
+    </div>
+  </div>
+
+  <div class="wrap courses-section">
+    <h2 class="section-heading">Current courses</h2>
+
+    <div class="course">
+      <div class="course-title">My Kid Isn't Bad — Understanding What Your Teen Is Really Saying</div>
+      <div class="course-meta">
+        <span><strong>Audience:</strong> Parents of 6th–12th graders</span>
+      </div>
+      <p class="course-synopsis">
+        Your kid isn't bad. Their behavior is communication. And what it's usually saying is: I need you — just differently than before. Parents of teenagers often arrive at this stage feeling like they're failing — their child is refusing school, pushing back on everything, and shutting down every conversation. This workshop reframes the whole picture. Drawing on the work of Lisa Damour, John Gottman, Brené Brown, and Mel Robbins, it gives parents the developmental context, the emotional tools, and the practical skills to stop fighting their teenager and start understanding them.
+      </p>
+      <p class="course-format">Offered periodically online (Zoom) and in person.</p>
+      <div class="course-actions">
+        <a class="catalog-cta" href="https://powayadultschool.powayusd.com/apps/pages/catalog" target="_blank" rel="noopener">See current dates &amp; register</a>
+        <a class="materials-link" href="teen-materials.html">Enrolled? Access course materials →</a>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">Parenting Like a Mediator: Navigating Sibling Conflict</div>
+      <div class="course-meta">
+        <span><strong>Format:</strong> One-day workshop, virtual</span>
+      </div>
+      <p class="course-synopsis">
+        Are you tired of being the family referee? When sibling conflict erupts, most parents feel forced to pick a side or hand out a consequence, only for the same fight to happen again ten minutes later. By trading the "whistle" for a mediator's chair, you can move beyond policing and toward empowering your children to solve their own disputes. In this introductory workshop, Laura Lorber, J.D. — a family mediator and PITC Fellow — will help you understand the fundamental difference between being a mediator and a referee, and why strengthening your own emotional intelligence is key to making that shift. You'll walk away with a developmental framework for understanding rivalry and practical communication tools to help you stay grounded when the yelling starts.
+      </p>
+      <div class="course-actions">
+        <a class="catalog-cta" href="https://powayadultschool.powayusd.com/apps/pages/catalog" target="_blank" rel="noopener">See current dates &amp; register</a>
+        <a class="materials-link" href="sibling-materials.html">Enrolled? Access course materials →</a>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-title">Personal Stress and Anxiety</div>
+      <div class="course-meta">
+        <span><strong>Audience:</strong> TK–12th grade parent education</span>
+      </div>
+      <p class="course-synopsis">
+        Anxiety isn't a thinking problem. It's a body that doesn't know how to turn off. Most of us try to manage stress and anxiety in our minds — analyzing it, reasoning with it, willing it away. It doesn't work. What's actually happening is that your fight-or-flight response has been triggered, flooding your body with stress hormones that have nowhere to go. This workshop gives them somewhere to go. Through guided movement, breathwork, and simple daily practices, participants will experience — not just learn about — what it feels like when the nervous system finally gets to release. You are not alone in this, and you are not broken — your body is doing exactly what it was designed to do. We're just going to help it finish the job.
+      </p>
+      <p class="course-format">Offered periodically online (Zoom) and in person.</p>
+      <div class="course-actions">
+        <a class="catalog-cta" href="https://powayadultschool.powayusd.com/apps/pages/catalog" target="_blank" rel="noopener">See current dates &amp; register</a>
+        <a class="materials-link" href="anxiety-materials.html">Enrolled? Access course materials →</a>
+      </div>
+    </div>
+
+    <div class="more-soon">
+      More courses will be listed here as they're scheduled.
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      Gradient Resolutions · <a href="mailto:Laura@GradientResolutions.com">Laura@GradientResolutions.com</a> · GradientResolutions.com
+    </div>
+  </footer>
+
+</body>
+</html>
