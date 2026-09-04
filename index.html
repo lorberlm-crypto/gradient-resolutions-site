@@ -215,6 +215,70 @@
   .t4 .tile-title { color: white; }
   .t4 .tile-sub { color: rgba(255,255,255,0.7); }
 
+  /* STILL DECIDING SECTION */
+  .deciding-section {
+    max-width: 780px;
+    margin: 0 auto 60px;
+    padding: 0 40px;
+  }
+  .deciding-label {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .deciding-intro {
+    font-size: 14.5px;
+    color: #555;
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .worksheet-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .worksheet-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 28px 26px;
+    display: flex;
+    flex-direction: column;
+  }
+  .worksheet-card .worksheet-title {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .worksheet-card .worksheet-desc {
+    font-size: 13.5px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  .worksheet-card .worksheet-link {
+    align-self: flex-start;
+    background: var(--teal);
+    color: white;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  @media (max-width: 600px) {
+    .worksheet-pair { grid-template-columns: 1fr; }
+  }
+
   .workbook-strip {
     max-width: 1000px;
     margin: 0 auto 90px;
@@ -322,6 +386,33 @@
       </div>
     </div>
     </a>
+  </div>
+</div>
+
+<div class="deciding-section">
+  <div class="deciding-label">Still deciding if this is right for you?</div>
+  <div class="deciding-intro">
+    That's not just okay — it's the norm. Whether you're weighing this on your own or the other
+    person isn't there yet, these two worksheets are here to help you think it through — no
+    pressure to reach a conclusion, no obligation to share them with anyone.
+  </div>
+  <div class="worksheet-pair">
+    <div class="worksheet-card">
+      <div class="worksheet-title">Not sure mediation fits your situation?</div>
+      <div class="worksheet-desc">
+        A set of honest questions about where things stand — your relationship, what's at
+        stake, what the process itself would actually involve.
+      </div>
+      <a href="worksheet1-still-deciding-situation.pdf" target="_blank" class="worksheet-link">Take the worksheet →</a>
+    </div>
+    <div class="worksheet-card">
+      <div class="worksheet-title">Know the facts, but still can't decide?</div>
+      <div class="worksheet-desc">
+        A worksheet for sitting with the ambivalence itself — what's pulling you forward,
+        what's holding you back, and what that tells you.
+      </div>
+      <a href="worksheet2-still-deciding-ambivalence.pdf" target="_blank" class="worksheet-link">Take the worksheet →</a>
+    </div>
   </div>
 </div>
 
