@@ -129,6 +129,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 32px 48px; text-align: center; font-size: 13px; }
 
+
+  /* ── Desktop layout ── */
+  .paths, .class-pair { display: block; }
+  @media (min-width: 900px) {
+    .page-header { max-width: 860px; }
+    .page-header p { max-width: 700px; }
+    .breadcrumb { max-width: 1040px; }
+    .service-section { max-width: 1040px; }
+    .movement-divider { max-width: 1040px; }
+
+    .why-card { display: grid; grid-template-columns: 5fr 7fr; column-gap: 40px; align-items: start; }
+    .why-card .card-photo { margin: 0; position: sticky; top: 24px; }
+    .why-card .card-photo img { height: 460px; object-position: 40% center; }
+    .why-card .why-more { grid-column: 1 / -1; margin-top: 8px; }
+    .why-card .why-more .sub-offer { margin-top: 24px; }
+    .why-card .why-more .sub-offer p { max-width: 820px; }
+
+    .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 44px; }
+    .paths .service-card { margin-bottom: 0; display: flex; flex-direction: column; }
+    .paths .service-card .card-cta { margin-top: auto; padding-top: 22px; }
+    .paths .resource-pair { grid-template-columns: 1fr; }
+
+    .hotlines { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+    .hotlines li:nth-last-child(2) { border-bottom: none; }
+
+    .class-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .class-pair .sub-offer { margin: 18px 0 0; }
+
+    .faq-section { max-width: 860px; }
+  }
+
   @media (max-width: 640px) {
     nav { padding: 16px 20px; }
     .service-card, .safety-card { padding: 28px 24px; }
@@ -170,12 +201,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="service-section">
 
-  <div class="service-card">
-    <h2>Why Laura?</h2>
+  <div class="service-card why-card">
     <div class="card-photo"><img src="laura-and-daughter.jpg" alt="Laura Lorber hugging her young daughter" loading="lazy"></div>
+    <div class="why-text">
+    <h2>Why Laura?</h2>
     <p>I came to this work through the classroom. When my daughter started preschool, I was transfixed, and I went on to work with infants and toddlers and, eventually, to supervise the teachers caring for them. Babies who can't yet tell you what they need are a puzzle to be solved: what does this small person need to reach the next milestone? The longer I worked on that puzzle, the clearer it became that the answer usually ran through the family.</p>
     <p>So much of that work happened at drop-off and pickup, with new parents who were exhausted, anxious, and often disagreeing about what their baby needed. My fellowship through the Program for Infant-Toddler Care (PITC) ended with a unit on conflict within families and across cultures, and that's what led me back to mediation. It taught me that disagreements about sleep, feeding, and comfort are rarely just about the baby. They carry each parent's upbringing, culture, and deeply held beliefs about what good care looks like.</p>
     <p>That fellowship also gave shape to the rule I still work by: seek to understand the parents, don't judge them. It isn't always easy to hold, which is exactly why it matters.</p>
+    </div>
+    <div class="why-more">
     <div class="sub-offer">
       <h3>Temperament charting and Exchange Recipes</h3>
       <p>When my daughter was young and I was studying infant-toddler mental health, I discovered a tool called temperament charting. It helped me see that my daughter and I clashed so often because we were both highly persistent, with strong emotions. Once I understood that, I learned to plan ahead for the hard moments, and to step out and let my husband step in when we got stuck. It was a game changer for our family, and now I use the same tool to help other families.</p>
@@ -192,8 +226,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li>Room for both parents' values, family traditions, and cultures</li>
       <li>A law degree and advanced mediation training to turn all of it into agreements that hold</li>
     </ul>
+    </div>
   </div>
 
+  <div class="paths">
   <div class="service-card">
     <h2>If you're not sure yet</h2>
     <p>You don't have to have decided anything about your relationship to talk with me. This isn't couples therapy. It's a practical conversation about the household you're living in right now: who handles nights, how the work gets divided, and what happens when you disagree in front of the baby.</p>
@@ -234,6 +270,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
+  </div>
+
   <div class="safety-card">
     <h2>If you don't feel safe</h2>
     <p>If you don't feel safe, or you're worried about your own safety or your baby's, the process looks different, and that's a conversation I'll have with you privately and first.</p>
@@ -251,6 +289,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2>For expecting families</h2>
     <p>The best time to talk about sleep, feeding, and who does what is before the baby arrives. I offer two small-group classes, by inquiry, online or in person.</p>
 
+    <div class="class-pair">
     <div class="sub-offer">
       <h3>Five Conversations Before Baby</h3>
       <div class="meta">For expecting couples · Five small-group sessions</div>
@@ -261,6 +300,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h3>Preparing to Be Grandparents</h3>
       <div class="meta">For grandparents-to-be · One two-hour session</div>
       <p>How to become a partner to your adult children, so that when the baby arrives, everyone is ready to work together. Grandparents often take this class while their children take Five Conversations Before Baby.</p>
+    </div>
     </div>
 
     <div class="card-cta">
