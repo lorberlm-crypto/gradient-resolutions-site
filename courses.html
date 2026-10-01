@@ -93,7 +93,8 @@ nav {
 
 /* ---- Hero ---- */
 .hero {
-  padding: 64px 0 56px;
+  padding-top: 64px;
+  padding-bottom: 56px;
 }
 
 .hero h1 {
@@ -109,6 +110,38 @@ nav {
   max-width: 54ch;
   font-size: 1.05rem;
   color: #444;
+}
+
+/* ---- Hero photo ---- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 40px;
+  align-items: center;
+}
+.hero-photo { margin: 0; }
+.hero-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+.hero-photo .photo-bar {
+  height: 5px;
+  margin: -3px 14px 0;
+  border-radius: 5px;
+  position: relative;
+  background: linear-gradient(90deg, var(--teal-light), var(--teal), var(--orange-light), var(--navy));
+}
+.hero-photo figcaption { margin-top: 14px; font-size: 13.5px; color: #555; line-height: 1.5; }
+.hero-photo figcaption strong { display: block; color: var(--navy); }
+.hero-photo figcaption a { color: var(--orange-dark); font-weight: 600; text-decoration: none; }
+.hero-photo figcaption a:hover { text-decoration: underline; }
+@media (max-width: 680px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .hero-photo { order: -1; max-width: 190px; }
 }
 
 /* ---- Quick actions (signup / host-me) ---- */
@@ -136,7 +169,8 @@ nav {
 
 /* ---- Course card (dossier style, not a SaaS card) ---- */
 .courses-section {
-  padding: 8px 0 64px;
+  padding-top: 8px;
+  padding-bottom: 64px;
 }
 
 .section-heading {
@@ -420,6 +454,13 @@ footer a { color: var(--navy); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+  /* Mobile layout: let the nav wrap instead of running off the screen */
+  @media (max-width: 760px) {
+    nav { flex-wrap: wrap; row-gap: 10px; padding: 14px 20px; }
+    .nav-links { flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px; }
+    .nav-links span, .nav-email { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -441,8 +482,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
   <div class="wrap hero">
-    <h1>Your family's hardest conversations, with a framework underneath them.</h1>
-    <p>Workshops for parents navigating the moments that feel hardest to talk about — built on research, not guesswork, and taught by a family mediator who does this work every day.</p>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Your family's hardest conversations, with a framework underneath them.</h1>
+        <p>Workshops for parents navigating the moments that feel hardest to talk about — built on research, not guesswork, and taught by a family mediator who does this work every day.</p>
+      </div>
+      <figure class="hero-photo">
+        <img src="laura-courses.jpg" width="560" height="700" alt="Laura Lorber, J.D., laughing, in a navy blazer and San Diego T-shirt">
+        <div class="photo-bar"></div>
+        <figcaption><strong>Laura Lorber, J.D.</strong>Family mediator and parent educator<br><a href="about.html">Meet Laura</a></figcaption>
+      </figure>
+    </div>
 
     <div class="quick-actions">
       <a href="mailto:Laura@GradientResolutions.com?subject=Interested%20in%20a%20course">I'm interested in signing up</a>

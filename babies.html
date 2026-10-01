@@ -166,6 +166,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .service-section, .faq-section, .page-header, .breadcrumb { padding-left: 20px; padding-right: 20px; }
     .resource-pair { grid-template-columns: 1fr; }
   }
+
+  /* Mobile layout: let the nav wrap instead of running off the screen */
+  @media (max-width: 760px) {
+    nav { flex-wrap: wrap; row-gap: 10px; padding: 14px 20px; }
+    .nav-links { flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px; }
+    .nav-links span, .nav-email { display: none; }
+  }
 </style>
 </head>
 <body>

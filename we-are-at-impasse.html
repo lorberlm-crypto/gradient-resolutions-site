@@ -79,6 +79,13 @@
   .case-study { background: var(--grey-bg); border: 1px solid #ddd; border-radius: 8px; padding: 16px 20px; margin: 14px 0; font-size: 13.5px; line-height: 1.7; }
   .case-study .cs-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
   footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 32px 48px; text-align: center; font-size: 13px; }
+
+  /* Mobile layout: let the nav wrap instead of running off the screen */
+  @media (max-width: 760px) {
+    nav { flex-wrap: wrap; row-gap: 10px; padding: 14px 20px; }
+    .nav-links { flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px; }
+    .nav-links span, .nav-email { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -94,7 +101,7 @@
 </nav>
 <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="index.html">Divorce + co-parenting</a> &nbsp;/&nbsp; We are mid-divorce or at an impasse</div>
 <div class="page-title"><h1>We are mid-divorce or at an impasse</h1></div>
-<p style="font-size:13.5px;color:#888;text-align:center;margin:-20px 40px 30px;max-width:780px;margin-left:auto;margin-right:auto;">In San Diego and throughout California, I work with families in high-conflict situations — as a mediator and as a consulting resource for attorneys whose cases have stalled.</p>
+<p style="font-size:13.5px;color:#888;text-align:center;margin:-20px 40px 30px;max-width:780px;margin-left:auto;margin-right:auto;padding:0 24px;">In San Diego and throughout California, I work with families in high-conflict situations — as a mediator and as a consulting resource for attorneys whose cases have stalled.</p>
 <div class="fork-section">
   <div class="fork-row">
     <a href="https://calendly.com/mediatorlaura/mediation-consultation-clone" target="_blank" style="text-decoration:none;">

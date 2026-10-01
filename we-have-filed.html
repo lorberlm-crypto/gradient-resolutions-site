@@ -76,6 +76,13 @@
   .accordion-a { padding: 0 24px 22px; font-size: 14.5px; color: #444; display: none; line-height: 1.75; }
   .accordion-item.open .accordion-a { display: block; }
   footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 32px 48px; text-align: center; font-size: 13px; }
+
+  /* Mobile layout: let the nav wrap instead of running off the screen */
+  @media (max-width: 760px) {
+    nav { flex-wrap: wrap; row-gap: 10px; padding: 14px 20px; }
+    .nav-links { flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px; }
+    .nav-links span, .nav-email { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -91,7 +98,7 @@
 </nav>
 <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="index.html">Divorce + co-parenting</a> &nbsp;/&nbsp; We've filed but haven't started yet</div>
 <div class="page-title"><h1>We've filed but haven't started yet</h1></div>
-<p style="font-size:13.5px;color:#888;text-align:center;margin:-20px 40px 30px;max-width:780px;margin-left:auto;margin-right:auto;">Based in San Diego and serving California families virtually, I help couples move from filing to final agreement without the cost of a courtroom.</p>
+<p style="font-size:13.5px;color:#888;text-align:center;margin:-20px 40px 30px;max-width:780px;margin-left:auto;margin-right:auto;padding:0 24px;">Based in San Diego and serving California families virtually, I help couples move from filing to final agreement without the cost of a courtroom.</p>
 <div class="fork-section">
   <div class="fork-row">
     <a href="https://calendly.com/mediatorlaura/mediation-consultation-clone" target="_blank" style="text-decoration:none;">
