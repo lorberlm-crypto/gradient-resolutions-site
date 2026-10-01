@@ -106,28 +106,67 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   .hero {
-    max-width: 780px;
+    max-width: 1040px;
     margin: 0 auto;
-    padding: 90px 40px 50px;
-    text-align: center;
+    padding: 80px 40px 50px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: center;
   }
   .hero h1 {
     font-family: 'Comfortaa', sans-serif;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 38px;
     color: var(--navy);
     line-height: 1.25;
-    margin-bottom: 28px;
+    margin-bottom: 26px;
     letter-spacing: -0.5px;
   }
   .hero-body {
     font-size: 17px;
     color: #444;
-    max-width: 620px;
-    margin: 0 auto;
   }
   .hero-body p { margin-bottom: 18px; }
   .hero-body p:last-child { margin-bottom: 0; }
+
+  .hero-photo { position: relative; margin: 0; max-width: 380px; justify-self: end; width: 100%; }
+  .hero-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 40%;
+  }
+  .hero-photo .photo-bar {
+    height: 6px;
+    margin: -3px 18px 0;
+    border-radius: 6px;
+    position: relative;
+    background: linear-gradient(90deg, var(--teal-light), var(--teal), var(--orange-light), var(--navy));
+  }
+  .hero-caption { margin-top: 20px; font-size: 14px; color: #555; }
+  .hero-caption strong {
+    display: block;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 15px;
+    color: var(--navy);
+  }
+  .hero-caption a {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 600;
+    color: var(--orange-dark);
+    text-decoration: none;
+  }
+  .hero-caption a:hover { text-decoration: underline; }
+
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; gap: 36px; padding: 44px 24px 30px; }
+    .hero-photo { order: -1; max-width: 230px; width: 100%; margin: 0 auto; text-align: center; }
+    .hero h1 { font-size: 30px; }
+  }
 
   .gradient-bar {
     height: 4px;
@@ -351,12 +390,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 <div class="hero">
+  <div class="hero-text">
   <h1>When relationships matter,<br>conflict needs a new process.</h1>
   <div class="hero-body">
     <p>The legal system wasn't designed for families. It was built to determine fault — winners and losers, plaintiffs and defendants.</p>
     <p>Mediation starts from a different premise. Not who is right. Not who wins. But how do we keep this family intact enough that the people who depend on us most can still count on us.</p>
   </div>
-  <div class="gradient-bar"></div>
+  </div>
+  <figure class="hero-photo">
+    <img src="laura-hero.jpg" width="800" height="1000" alt="Laura Lorber, J.D., family mediator, smiling in a blue jacket">
+    <div class="photo-bar"></div>
+    <figcaption class="hero-caption">
+      <strong>Laura Lorber, J.D.</strong>
+      Family mediator and parenting coordinator, San Diego<br>
+      <a href="about.html">Meet Laura</a>
+    </figcaption>
+  </figure>
 </div>
 
 <div class="tiles-section">
