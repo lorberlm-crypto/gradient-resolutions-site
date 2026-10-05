@@ -21,13 +21,8 @@
       "permanent": false
     },
     {
-      "source": "/pitch-hitter",
-      "destination": "/attorneys.html?utm_source=postcard&utm_medium=print&utm_campaign=pitch-hitter-card",
-      "permanent": false
-    },
-    {
       "source": "/pinch-hitter",
-      "destination": "/attorneys.html?utm_source=postcard&utm_medium=print&utm_campaign=pitch-hitter-card",
+      "destination": "/attorneys.html?utm_source=postcard&utm_medium=print&utm_campaign=pinch-hitter-card",
       "permanent": false
     }
   ]
