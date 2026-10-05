@@ -14,6 +14,21 @@
       "source": "/services-store/p/your-co-parenting-plan-blueprint-the-step-by-step-workbook-to-deign-a-stable-detailed-parenting-plan",
       "destination": "/workbook.html",
       "permanent": true
+    },
+    {
+      "source": "/families",
+      "destination": "/?utm_source=postcard&utm_medium=print&utm_campaign=families-card",
+      "permanent": false
+    },
+    {
+      "source": "/pitch-hitter",
+      "destination": "/attorneys.html?utm_source=postcard&utm_medium=print&utm_campaign=pitch-hitter-card",
+      "permanent": false
+    },
+    {
+      "source": "/pinch-hitter",
+      "destination": "/attorneys.html?utm_source=postcard&utm_medium=print&utm_campaign=pitch-hitter-card",
+      "permanent": false
     }
   ]
 }
