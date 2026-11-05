@@ -6,6 +6,16 @@
       "permanent": true
     },
     {
+      "source": "/vision",
+      "destination": "/vision-board.html",
+      "permanent": false
+    },
+    {
+      "source": "/vision-board",
+      "destination": "/vision-board.html",
+      "permanent": false
+    },
+    {
       "source": "/contact",
       "destination": "/",
       "permanent": true
