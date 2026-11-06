@@ -95,7 +95,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     align-items: center;
     font-size: 14px;
   }
-  .nav-links a { color: var(--text); text-decoration: none; }
+  .nav-links a { color: var(--text); text-decoration: none; white-space: nowrap; }
+  @media (max-width: 1400px) { .nav-links span, .nav-email { display: none; } .nav-links { gap: 24px; } }
   .nav-cta {
     background: var(--teal);
     color: white;
@@ -393,6 +394,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="index.html">Home</a>
     <a href="workbook.html">Workbook</a>
     <a href="about.html">About</a>
+    <a href="packages.html">Pricing</a>
     <a href="courses.html">Courses</a>
     <a href="babies.html">Babies &amp; Toddlers</a>
     <a href="retreats.html">Retreats</a>

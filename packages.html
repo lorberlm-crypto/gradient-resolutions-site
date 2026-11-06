@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
 <title>Packages & Pricing | Gradient Resolutions — San Diego, CA</title>
-<meta name="description" content="Mediation, parenting coordination, and family conflict resolution packages from Laura Lorber, J.D., MC3 Mediator and Parent Coordinator. Milestone-based pricing, San Diego, CA.">
+<meta name="description" content="Packages and pricing from Laura Lorber, J.D., MC3 Mediator and Parent Coordinator: Family Fit parenting plans, Parent Coordination, and the Pinch Hit for attorneys and mediators. San Diego, CA.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -27,7 +27,16 @@
       "addressCountry": "US"
     }
   },
-  "areaServed": "San Diego, California"
+  "areaServed": "San Diego, California",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Packages & Pricing",
+    "itemListElement": [
+      { "@type": "Offer", "name": "Family Fit (base package)", "price": "2135", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Parent Coordination (hourly)", "price": "350", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "The Pinch Hit", "price": "560", "priceCurrency": "USD" }
+    ]
+  }
 }
 </script>
 <style>
@@ -55,60 +64,60 @@
   .page-title h1 { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 28px; color: var(--navy); line-height: 1.4; margin-bottom: 18px; }
   .page-title p { font-size: 15.5px; color: #444; max-width: 640px; margin: 0 auto 14px; text-align: left; }
 
-  .body-section { max-width: 760px; margin: 30px auto 0; padding: 0 40px; }
-  .body-section h2 { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 21px; color: var(--navy); margin-bottom: 14px; line-height: 1.4; }
-  .body-section p { font-size: 15px; color: #333; margin-bottom: 14px; }
-  .body-section p:last-of-type { margin-bottom: 0; }
-
-  .philosophy-card {
-    max-width: 760px; margin: 30px auto; padding: 0 40px;
-  }
-  .philosophy-card .inner {
-    background: linear-gradient(160deg, var(--navy), #052e33); border-radius: 16px;
-    padding: 30px 34px; color: white;
-  }
-  .philosophy-card h2 { font-family: 'Comfortaa', sans-serif; font-weight: 600; font-size: 18px; margin-bottom: 14px; }
-  .philosophy-card p { font-size: 14.5px; color: rgba(255,255,255,0.85); margin-bottom: 12px; line-height: 1.75; }
-  .philosophy-card p:last-of-type { margin-bottom: 0; }
-  .philosophy-card a { color: var(--teal-light); font-weight: 500; }
+  .jump-links { max-width: 760px; margin: 10px auto 0; padding: 0 40px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .jump-links a { font-size: 13px; font-weight: 500; color: var(--navy); text-decoration: none; border: 1.5px solid var(--teal-light); background: white; border-radius: 20px; padding: 7px 16px; }
 
   .cta-btn { padding: 12px 26px; border-radius: 24px; font-size: 13.5px; font-weight: 500; text-decoration: none; display: inline-block; }
   .cta-primary { background: var(--teal); color: white; }
   .cta-secondary { background: white; color: var(--navy); border: 1.5px solid var(--navy); }
 
-  .intro-cta { max-width: 760px; margin: 20px auto 0; padding: 0 40px; }
-
-  .packages-section { max-width: 760px; margin: 40px auto 0; padding: 0 40px; }
-  .package-card {
-    background: white; border: 1px solid #eee; border-radius: 16px;
-    padding: 34px 36px; margin-bottom: 28px;
-  }
-  .package-name { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 21px; color: var(--navy); margin-bottom: 4px; }
-  .package-price { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 22px; color: var(--orange-dark); margin-bottom: 6px; }
-  .package-subtitle { font-size: 14px; color: #777; font-style: italic; margin-bottom: 18px; }
+  .packages-section { max-width: 760px; margin: 36px auto 0; padding: 0 40px; }
+  .package-card { background: white; border: 1px solid #eee; border-radius: 16px; padding: 34px 36px; margin-bottom: 28px; scroll-margin-top: 20px; }
+  .package-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+  .package-name { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 22px; color: var(--navy); margin-bottom: 4px; }
+  .package-price { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 22px; color: var(--orange-dark); margin-bottom: 16px; }
+  .package-price small { font-family: 'Work Sans', sans-serif; font-size: 14px; color: #777; font-weight: 400; }
+  .package-card h3 { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 16px; color: var(--navy); margin: 24px 0 10px; }
   .package-card p { font-size: 14.5px; color: #333; margin-bottom: 14px; line-height: 1.75; }
-  .package-card p:last-of-type { margin-bottom: 0; }
-  .package-card ul { margin: 0 0 16px; padding-left: 20px; font-size: 14.5px; color: #333; }
+  .package-card ul { margin: 0 0 14px; padding-left: 20px; font-size: 14.5px; color: #333; }
   .package-card ul li { margin-bottom: 8px; }
-  .package-card .included-label { font-weight: 600; color: var(--navy); }
-  .package-ctas { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .label { font-weight: 600; color: var(--navy); }
+  .package-ctas { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
 
-  .ecosystem-section { max-width: 760px; margin: 40px auto 0; padding: 0 40px; }
-  .ecosystem-section h2 { font-family: 'Comfortaa', sans-serif; font-weight: 700; font-size: 20px; color: var(--navy); margin-bottom: 14px; }
-  .ecosystem-section p { font-size: 14.5px; color: #333; margin-bottom: 14px; line-height: 1.75; }
+  .callout { background: var(--grey-bg); border-left: 4px solid var(--orange-dark); border-radius: 4px; padding: 16px 20px; margin: 18px 0; font-size: 14.5px; color: #333; }
+  .callout p:last-child { margin-bottom: 0; }
 
-  .pricing-note-section { max-width: 760px; margin: 30px auto 60px; padding: 0 40px; }
-  .pricing-note-card {
-    background: var(--teal-light); border-radius: 12px; padding: 26px 30px;
-  }
-  .pricing-note-card .label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin-bottom: 10px; }
-  .pricing-note-card p { font-size: 14.5px; color: var(--navy); line-height: 1.75; }
+  /* Session table */
+  .session-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 4px 0 8px; }
+  .session-table th { text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); background: var(--teal-light); padding: 10px 12px; }
+  .session-table td { padding: 12px; border-bottom: 1px solid #eee; vertical-align: top; color: #333; line-height: 1.6; }
+  .session-table td.num { font-family: 'Comfortaa', sans-serif; font-weight: 700; color: var(--orange-dark); }
+  .session-table td.nowrap { white-space: nowrap; }
+
+  /* Fee list */
+  .fee-list { list-style: none; padding-left: 0 !important; }
+  .fee-list li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed #e3e3e3; margin-bottom: 0 !important; }
+  .fee-list li:last-child { border-bottom: none; }
+  .fee-list .fee-amt { font-weight: 600; color: var(--navy); white-space: nowrap; }
+  .fee-total { background: var(--navy); color: white; border-radius: 10px; padding: 14px 18px; display: flex; justify-content: space-between; gap: 16px; align-items: center; margin: 10px 0 14px; font-size: 14.5px; }
+  .fee-total strong { font-family: 'Comfortaa', sans-serif; font-size: 20px; color: white; }
+
+  .closing-section { max-width: 680px; margin: 30px auto 80px; padding: 0 40px; text-align: center; }
+  .closing-section p { font-size: 16px; color: var(--navy); font-family: 'Comfortaa', sans-serif; font-weight: 600; margin-bottom: 22px; line-height: 1.55; }
 
   footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 32px 48px; text-align: center; font-size: 13px; }
 
   @media (max-width: 640px) {
-    .package-card { padding: 26px 24px; }
-    .philosophy-card .inner { padding: 24px 26px; }
+    .page-title, .packages-section, .jump-links, .closing-section, .breadcrumb { padding-left: 16px; padding-right: 16px; }
+    .package-card { padding: 26px 20px; }
+    /* Stack the session table into cards on phones */
+    .session-table thead { display: none; }
+    .session-table, .session-table tbody, .session-table tr, .session-table td { display: block; width: 100%; }
+    .session-table tr { border: 1px solid #eee; border-radius: 10px; padding: 10px 14px; margin-bottom: 10px; }
+    .session-table td { border: none; padding: 3px 0; }
+    .session-table td[data-label]::before { content: attr(data-label) ": "; font-weight: 600; color: var(--navy); }
+    .session-table td.num::before { content: "Session "; }
+    .fee-list li { flex-direction: column; gap: 2px; }
   }
 
   /* Mobile layout: let the nav wrap instead of running off the screen */
@@ -127,6 +136,7 @@
     <a href="index.html">Home</a>
     <a href="workbook.html">Workbook</a>
     <a href="about.html">About</a>
+    <a href="packages.html">Pricing</a>
     <a href="mailto:Laura@GradientResolutions.com" style="text-decoration:none;"><div class="nav-cta">Email Laura</div></a>
   </div>
 </nav>
@@ -136,139 +146,136 @@
 </div>
 
 <div class="page-title">
-  <h1>How we work together</h1>
-  <p>Every engagement starts with a consultation — a conversation to understand where you are and what you actually need. From there, we find the right fit. These packages are a starting point, not a prescription. If something needs to be adjusted to fit your situation, we'll talk about that too.</p>
-  <p>All packages use milestone-based pricing: amounts are confirmed at your consultation and payment is due before each session begins. This keeps the process moving and removes the uncertainty of an open-ended hourly clock.</p>
-  <p>Costs are typically shared between parties. Whatever you're seeing here, you're not looking at this alone.</p>
+  <h1>Packages &amp; Pricing</h1>
+  <p>Every family's situation is different, so these are starting points. If you're not sure which fits, reach out and we'll talk it through.</p>
 </div>
 
-<div class="intro-cta">
-  <a href="https://calendly.com/mediatorlaura/mediation-consultation-clone" target="_blank" class="cta-btn cta-primary">Schedule a consultation to get started</a>
-</div>
-
-<div class="philosophy-card">
-  <div class="inner">
-    <h2>A note on how I stay neutral — and why that's the wrong question</h2>
-    <p>You may wonder how I can meet privately with each party and still remain neutral. The honest answer is that I don't practice old-style neutrality — being on no one's side. I am on everyone's side, and especially on the side of the family as a whole.</p>
-    <p>Individual sessions aren't a compromise to neutrality. They're how I make sure every person in the process feels genuinely heard — so that when we sit down together, everyone is actually ready to work.</p>
-    <p>If you're a professional or just want to understand this more deeply, there's a longer conversation about it on the page for attorneys and divorce professionals.</p>
-    <p><a href="attorneys.html">For attorneys &amp; divorce professionals →</a></p>
-  </div>
+<div class="jump-links">
+  <a href="#family-fit">Family Fit</a>
+  <a href="#parent-coordination">Parent Coordination</a>
+  <a href="#pinch-hit">For attorneys &amp; mediators: the Pinch Hit</a>
 </div>
 
 <div class="packages-section">
 
-  <div class="package-card">
-    <div class="package-name">The First Step</div>
-    <div class="package-price">$600</div>
-    <div class="package-subtitle">For individuals who aren't ready to mediate yet — or who are mediating with someone else and need support.</div>
-    <p>Sometimes you need to get clear before you can get to the table. The First Step is individual coaching — just you — designed for two different situations:</p>
-    <ul>
-      <li>You're considering mediation but your spouse or co-parent isn't there yet, and you need help figuring out how to approach that conversation, understand your options, and prepare for what comes next without making things worse in the meantime</li>
-      <li>You're already working with another mediator and feeling stuck on your own position — this is strategic pre-mediation coaching, a confidential space to think through your options and prepare for your next session without compromising the neutrality of your mediator</li>
+  <!-- FAMILY FIT -->
+  <div class="package-card" id="family-fit">
+    <div class="package-eyebrow">Parenting plans</div>
+    <div class="package-name">Family Fit</div>
+    <div class="package-price">$2,135 <small>base package, about 7 hours</small></div>
+    <p>Family Fit helps separated and divorcing parents stop arguing about "best interests" and start asking which parent fits this child's temperament in this moment. Each parent charts the child separately from observation, using the Infant Toddler Temperament Charting Tool, version 3 (IT3). We turn those charts into a parenting plan with exchange recipes that work in both homes.</p>
+
+    <div class="callout">
+      <p><span class="label">Who it's for:</span> Parents building a parenting plan in a safe, functional home. Where trauma, neglect, or parentification is driving a child's behavior, this work doesn't replace clinical or child-protective services.</p>
+    </div>
+
+    <h3>The base package (about 7 hours)</h3>
+    <table class="session-table">
+      <thead>
+        <tr><th>Session</th><th>Format</th><th>Time</th><th>What happens</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">1</td>
+          <td data-label="Format">Joint intake</td>
+          <td class="nowrap" data-label="Time">90 min</td>
+          <td>Each parent is heard without interruption. We check for blockers and confirm the workbook has been received.</td>
+        </tr>
+        <tr>
+          <td class="num">2</td>
+          <td data-label="Format">Private (Parent A)</td>
+          <td class="nowrap" data-label="Time">75 min</td>
+          <td>Intake questions, a DV screen (completed in advance where possible), and temperament charting. Remaining charts are homework with a return date.</td>
+        </tr>
+        <tr>
+          <td class="num">3</td>
+          <td data-label="Format">Private (Parent B)</td>
+          <td class="nowrap" data-label="Time">75 min</td>
+          <td>Same structure as session 2.</td>
+        </tr>
+        <tr>
+          <td class="num">4</td>
+          <td data-label="Format">Joint</td>
+          <td class="nowrap" data-label="Time">3 hours</td>
+          <td>Compare charts, work through the parenting plan, and draft the exchange recipe and the communication channel between homes.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Included</h3>
+    <p>The Family Fit workbook (sent to both parents on the day of intake), the IT3 charting tool, and draft parenting plan language and an exchange recipe.</p>
+
+    <h3>Add-ons</h3>
+    <p>Two-hour sessions, scheduled when needed. Any issue that must be decided before the plan can be finalized gets its own session. Examples include interim housing while financial disclosure is pending, cohabitation terms, school decisions, and substance use or mental health concerns. Some add-ons may need counsel or a clinical referral. We confirm the path before scheduling, and add-on hours and fees are confirmed in writing before they're booked.</p>
+
+    <h3>Fees</h3>
+    <ul class="fee-list">
+      <li><span><span class="label">Administrative fee</span> — due at contract signing. Includes the workbook.</span><span class="fee-amt">$175</span></li>
+      <li><span><span class="label">Package hours</span> — 20% off the standard $350 rate. Covers base and add-on sessions.</span><span class="fee-amt">$280 / hour</span></li>
+      <li><span><span class="label">Add-on session</span> (2 hours)</span><span class="fee-amt">$560</span></li>
     </ul>
-    <p>Either way, this is four hours of focused, one-on-one support. If you need more time after that, a renewal block is available at the same rate without purchasing a full mediation package.</p>
+    <div class="fee-total">
+      <span>Base package: 7 × $280 = $1,960, plus the $175 fee</span>
+      <strong>$2,135 total</strong>
+    </div>
+
+    <h3>How time works</h3>
+    <p>Hours are estimates. We review the clock at the close of each session. If time runs short, we stop at a natural break and agree on the next step. Four sessions are the start of the process, not the whole process.</p>
+
+    <p><span class="label">Scope:</span> Mediation, not legal advice or clinical treatment.</p>
+
     <div class="package-ctas">
-      <a href="https://calendly.com/mediatorlaura/mediation-consultation-clone" target="_blank" class="cta-btn cta-primary">Schedule a consultation to get started</a>
+      <a href="https://calendly.com/mediatorlaura/mediation-consultation-clone" target="_blank" class="cta-btn cta-primary">Schedule a consultation</a>
     </div>
   </div>
 
-  <div class="package-card">
-    <div class="package-name">The Amicable Gradient</div>
-    <div class="package-price">$2,100</div>
-    <div class="package-subtitle">For low-conflict situations where both parties are ready to work together.</div>
-    <p>You've both decided to move forward. You're not looking for a fight — you're looking for a process that keeps things calm, moves at a reasonable pace, and gets you to an agreement you can both live with.</p>
-    <p><span class="included-label">This package works well for:</span></p>
-    <ul>
-      <li>Parenting plans where both parents are communicating and willing to collaborate</li>
-      <li>Parent-teen and young adult agreements around school, independence, or financial support</li>
-      <li>Elder care discussions where siblings or family members are ready to problem-solve together</li>
-      <li>Family conflicts where both parties are willing to come to the table</li>
+  <!-- PARENT COORDINATION -->
+  <div class="package-card" id="parent-coordination">
+    <div class="package-eyebrow">Ongoing support</div>
+    <div class="package-name">Parent Coordination</div>
+    <div class="package-price">$350 <small>per hour</small></div>
+    <p>Some families need extra help making parenting decisions, whether that's part of a court process or after a parenting plan is finalized but isn't working. That's when you might agree to bring in a Parenting Coordinator.</p>
+    <p>As your Parenting Coordinator, I help parents understand child development, mediate when possible, and make decisions for the parents when necessary, but only within the limits of your court order or signed agreement. I'm not a therapist, and I'm not either parent's attorney. I'm on everyone's side, and most of all on your children's side.</p>
+
+    <div class="callout">
+      <p><span class="label">Confidentiality:</span> Parent coordination is not confidential the way mediation is. What you share with me may be shared with the other parent, your attorneys, or the court.</p>
+    </div>
+
+    <h3>Fees</h3>
+    <ul class="fee-list">
+      <li><span><span class="label">Rate</span> — billed in six-minute increments. Covers sessions, calls, emails, document review, conversations with people like therapists or schools, and writing decisions.</span><span class="fee-amt">$350 / hour</span></li>
+      <li><span><span class="label">Onboarding</span> — one time, when you sign the agreement.</span><span class="fee-amt">$150</span></li>
+      <li><span><span class="label">Prepayment</span> — six hours before we begin. Each parent usually pays half ($1,050).</span><span class="fee-amt">$2,100</span></li>
+      <li><span><span class="label">Testimony</span> — per appearance, including document review. The parent who requests testimony pays before the date.</span><span class="fee-amt">$500</span></li>
     </ul>
-    <p><span class="included-label">What's included:</span> two hours of individual preparation sessions — one with each party — and up to four hours of joint mediation. A final written agreement is provided by Gradient Resolutions unless you elect to have independent counsel draft the language.</p>
-    <p>A note on how sessions are structured: joint sessions are scheduled in two- or three-hour blocks to prevent decision fatigue and keep the work focused. For cases that result in a court-filed document, the agreement is provided as an unsigned draft for submission — it does not become a court order until accepted by a judge.</p>
+    <p><span class="label">Top-up:</span> When the balance drops below two hours, each parent adds their share before the next session. If it isn't refilled, work pauses unless there's an emergency involving the children's safety. Any remaining balance is refunded when we finish.</p>
+
     <div class="package-ctas">
-      <a href="https://calendly.com/mediatorlaura/mediation-consultation-clone" target="_blank" class="cta-btn cta-primary">Schedule a consultation to get started</a>
+      <a href="pc.html" class="cta-btn cta-secondary">Learn more about Parent Coordination →</a>
+      <a href="https://calendly.com/mediatorlaura/mediation-consultation-clone" target="_blank" class="cta-btn cta-primary">Schedule a consultation</a>
     </div>
   </div>
 
-  <div class="package-card">
-    <div class="package-name">The Supported Gradient</div>
-    <div class="package-price">$5,500</div>
-    <div class="package-subtitle">For situations where communication has broken down and you need more structure to get there.</div>
-    <p>Some cases need more than joint sessions. When communication has become difficult, when trust has eroded, or when the issues are layered enough that joint work alone won't move things forward — you need individual support woven into the process alongside the joint sessions.</p>
-    <p><span class="included-label">This package works well for:</span></p>
-    <ul>
-      <li>Divorcing couples where direct communication has broken down but both parties are still willing to participate</li>
-      <li>Co-parents who have tried to negotiate on their own and keep ending up in the same place</li>
-      <li>Family conflicts involving significant financial decisions, estrangement, or long-standing patterns of miscommunication</li>
-      <li>Situations that need more time and care than the Amicable Gradient but where both parties are still willing to work toward a mediated agreement</li>
-    </ul>
-    <p><span class="included-label">What's included:</span> a combination of joint and individual sessions, structured so that you are fully supported and the case keeps moving forward. Individual sessions happen between joint sessions — giving each party a private space to process, prepare, and stay engaged without derailing the work you're doing together.</p>
-    <div class="package-ctas">
-      <a href="https://calendly.com/mediatorlaura/mediation-consultation-clone" target="_blank" class="cta-btn cta-primary">Schedule a consultation to get started</a>
-    </div>
-  </div>
+  <!-- PINCH HIT -->
+  <div class="package-card" id="pinch-hit">
+    <div class="package-eyebrow">For attorneys and mediators</div>
+    <div class="package-name">The Pinch Hit</div>
+    <div class="package-price">$560</div>
+    <p>When one issue is holding up an otherwise moving case, the Pinch Hit is a focused, two-hour intervention. Both parties complete two short sections of the <em>Co-Parenting Plan Blueprint</em> workbook before we meet. I review their submissions ahead of time, so I walk in already oriented to the family. Drafting the final agreement stays with the referring professional.</p>
+    <p><span class="label">$560</span> includes workbooks, preparation, and two hours of mediation. A follow-up session for reviewing and signing language is billed separately.</p>
 
-  <div class="package-card">
-    <div class="package-name">The Co-Parenting Stabilization &amp; Intake</div>
-    <div class="package-price">$1,950 <span style="font-size:14px; color:#777; font-weight:400;">($975 per parent)</span></div>
-    <div class="package-subtitle">The starting point for parenting coordination — not the entirety of it.</div>
-    <p>Parenting coordination is an ongoing process. This package is where it begins.</p>
-    <p>If you need a court-ordered Parenting Coordinator or Special Master, or if you and your co-parent are ready to establish a voluntary PC relationship, this is the structured starting point that makes everything that follows possible.</p>
-    <p><span class="included-label">This package works well for:</span></p>
-    <ul>
-      <li>Post-divorce co-parents where communication has broken down and decisions about the children keep stalling or escalating</li>
-      <li>Families with an existing parenting plan that isn't holding</li>
-      <li>Co-parents who are cycling back to court repeatedly over the same issues</li>
-      <li>Cases where a structured, ongoing process with decision-making authority is needed but hasn't yet been formally established</li>
-    </ul>
-    <p><span class="included-label">How it works:</span> we begin with a joint intake session — a conversation with both of you together. I want to learn from you first: what your family looks like, what isn't working, and what you need. That conversation shapes everything that follows.</p>
-    <p>Between the intake session and the individual sessions, I independently review your court orders and any relevant documents, informed by what I've learned from you about your situation and your children. Documents are reviewed together as they come up and are needed — not in advance of knowing your family.</p>
-    <p>From there, each parent meets with me individually — a private, confidential space to share your specific concerns, help me understand each child's temperament and needs, and establish the communication habits that will make the joint work possible.</p>
-    <p>Then we move into the first structured joint session: a focused meeting to stabilize your current schedule, address immediate pressure points — school decisions, activity conflicts, transition logistics — and establish the framework for how parenting coordination will work going forward.</p>
-    <p><span class="included-label">What comes after this package:</span> parenting coordination is a sustained engagement. After the intake process, the ongoing work typically moves through three phases: in the first quarter, we may meet as often as weekly or every two weeks — building structure, establishing patterns, and addressing issues as they arise while the framework is still new. As things stabilize, we move to monthly or every-six-weeks sessions, working through decision-making as it comes up rather than in reaction to crisis. Over time, as the framework holds and co-parenting skills develop, we move to quarterly check-ins — enough to maintain the structure without ongoing intensive support.</p>
-    <p>The scope, timeline, and ongoing structure of your PC engagement is determined together and, when appropriate, as ordered by the court, based on what your family actually needs.</p>
-    <p>If you're not sure whether you need parenting coordination or mediation, the worksheet below can help you think it through before your consultation.</p>
     <div class="package-ctas">
-      <a href="mediation_vs_pc_worksheet.html" target="_blank" class="cta-btn cta-secondary">Open worksheet: Mediation vs. PC</a>
-      <a href="pc.html" class="cta-btn cta-secondary">Learn more about parenting coordination</a>
-      <a href="https://calendly.com/mediatorlaura/mediation-consultation-clone" target="_blank" class="cta-btn cta-primary">Schedule a consultation to get started</a>
-    </div>
-  </div>
-
-  <div class="package-card">
-    <div class="package-name">The Full Gradient</div>
-    <div class="package-price">Starting at $10,000</div>
-    <div class="package-subtitle">For comprehensive, end-to-end support through the entire resolution process.</div>
-    <p>Some situations need someone with you from the very beginning all the way through — not just for the mediation itself, but for the preparation before and the support after.</p>
-    <p><span class="included-label">This package works well for:</span></p>
-    <ul>
-      <li>Complex divorces where children's needs are central to every decision and the issues are deeply layered</li>
-      <li>Families navigating significant financial decisions alongside co-parenting conflict</li>
-      <li>Situations where one or both parties need substantial individual support alongside joint work</li>
-      <li>Cases where you want the most comprehensive, start-to-finish engagement available</li>
-    </ul>
-    <p><span class="included-label">What's included:</span> individual coaching, mediation, and individual and joint sessions to build and maintain communication and agreements as your situation evolves. This engagement is built around your specific family — the issues, the timeline, the people involved — and designed to produce agreements durable enough to hold as life changes.</p>
-    <p>Pricing starts at $10,000 and is confirmed at consultation based on the scope of your specific situation.</p>
-    <div class="package-ctas">
-      <a href="https://calendly.com/mediatorlaura/mediation-consultation-clone" target="_blank" class="cta-btn cta-primary">Schedule a consultation to get started</a>
+      <a href="attorneys.html" class="cta-btn cta-primary">Refer a case →</a>
     </div>
   </div>
 
 </div>
 
-<div class="ecosystem-section">
-  <h2>The ecosystem around your case</h2>
-  <p>Divorce and co-parenting conflict rarely need just one professional. Depending on your situation, you may also need legal advice, financial guidance, or emotional support alongside the mediation process. I am part of a broader network of professionals who work with families navigating these transitions — including the Irooze Divorce Directory, Fresh Starts, and collaboratively trained practitioners across San Diego.</p>
-  <p>I design the process and keep parties moving safely forward through their decision-making. But the people around that process — attorneys, coaches, CDFAs, therapists — are part of what makes the outcome durable. If you need a referral, I'll point you toward someone I trust.</p>
-</div>
-
-<div class="pricing-note-section">
-  <div class="pricing-note-card">
-    <div class="label">A note on pricing</div>
-    <p>These packages represent the floor for doing this work durably — not a premium offering. Mediation is significantly less expensive than litigation — and the gap is larger than most people realize. In my collaborative divorce training in summer 2026, attorneys in the room put the cost of building toward a single day of trial in San Diego at $20,000–$30,000. That's one day. These packages are designed to get you all the way to a durable agreement for a fraction of that — and to do it in a way that actually holds.</p>
-  </div>
+<div class="closing-section">
+  <p>Not sure which of these fits your family? Reach out and we'll talk it through.</p>
+  <a href="https://calendly.com/mediatorlaura/mediation-consultation-clone" target="_blank" class="cta-btn cta-primary">Schedule a consultation</a>
+  &nbsp;
+  <a href="mailto:Laura@GradientResolutions.com" class="cta-btn cta-secondary">Email Laura</a>
 </div>
 
 <footer>
