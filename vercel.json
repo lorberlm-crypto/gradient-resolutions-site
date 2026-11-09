@@ -16,6 +16,11 @@
       "permanent": false
     },
     {
+      "source": "/packet",
+      "destination": "/packet.html",
+      "permanent": false
+    },
+    {
       "source": "/contact",
       "destination": "/",
       "permanent": true
